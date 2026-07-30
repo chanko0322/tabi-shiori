@@ -107,6 +107,10 @@
 
   @media (max-width:720px){
     .check-list{grid-template-columns:1fr;}
+    /* DAYタブ：狭い画面では折り返さず1行に収める（入りきらないときは横スクロール） */
+    .tabs{flex-wrap:nowrap;overflow-x:auto;gap:5px;padding-bottom:4px;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+    .tabs::-webkit-scrollbar{display:none;}
+    .tab{flex:1 1 auto;padding:11px 6px;font-size:12.5px;letter-spacing:0;white-space:nowrap;}
     .hero{min-height:290px;}
     .tl-time{flex-basis:52px;}
   }
