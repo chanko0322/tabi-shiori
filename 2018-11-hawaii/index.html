@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>ハワイ・オアフ島＆ハワイ島 旅のしおり（2018）</title>
+<style>
+  :root{
+    --coral:#E8654A; --coral-soft:#FDEDE7; --gold:#E9A13B; --gold-soft:#FBF0DC;
+    --ink:#3B2B2A; --sub:#8A7468; --cream:#FFF8F0; --card:#FFFFFF; --line:#F0DFCE;
+    --grad-sunset:linear-gradient(135deg,#FF8E6E 0%,#E8654A 55%,#C94B57 100%);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *,*::before,*::after{animation:none!important;transition:none!important;} }
+  body{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Noto Sans CJK JP","Yu Gothic",sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;font-size:16px;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;min-height:300px;display:flex;align-items:flex-end;background:#33265C;overflow:hidden;}
+  .hero-art{position:absolute;inset:0;width:100%;height:100%;display:block;}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(58,30,44,.10) 0%,rgba(58,30,44,.35) 45%,rgba(45,20,36,.88) 100%);}
+  .hero-inner{position:relative;z-index:1;width:100%;max-width:960px;margin:0 auto;padding:22px 24px 20px;color:#fff;}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700;letter-spacing:.12em;}
+  .hero h1{font-size:clamp(26px,4.5vw,40px);font-weight:800;letter-spacing:.04em;margin:10px 0 4px;text-shadow:0 2px 14px rgba(40,10,20,.45);}
+  .hero .sub{font-size:clamp(14px,2.2vw,17px);opacity:.94;font-weight:600;text-shadow:0 1px 8px rgba(40,10,20,.5);}
+  .hero .date-chip{display:inline-flex;align-items:center;gap:8px;margin-top:12px;background:rgba(233,161,59,.92);color:#3B2412;font-weight:800;border-radius:999px;padding:7px 16px;font-size:14px;letter-spacing:.04em;}
+
+  /* ---------- SECTION COMMON ---------- */
+  section{padding:44px 0 8px;}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;flex-wrap:wrap;}
+  .sec-en{font-size:13px;font-weight:800;letter-spacing:.22em;color:var(--coral);}
+  .sec-ja{font-size:clamp(20px,3vw,26px);font-weight:800;}
+  .sec-note{font-size:13px;color:var(--sub);margin-bottom:18px;}
+
+  /* ---------- GALLERY ---------- */
+  .gallery{display:flex;gap:14px;margin-top:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:2px 2px 12px;scrollbar-color:var(--line) transparent;}
+  .gallery::-webkit-scrollbar{height:8px;}
+  .gallery::-webkit-scrollbar-track{background:transparent;}
+  .gallery::-webkit-scrollbar-thumb{background:var(--line);border-radius:999px;}
+  .g-card{position:relative;flex:0 0 min(250px,72%);scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.04),0 4px 12px rgba(0,0,0,.04);}
+  .g-card img,.g-card svg{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
+  .g-body{position:absolute;left:0;right:0;bottom:0;padding:44px 12px 12px;background:linear-gradient(180deg,rgba(30,14,10,0) 0%,rgba(30,14,10,.55) 45%,rgba(30,14,10,.82) 100%);}
+  .g-tag{display:inline-block;font-size:11.5px;font-weight:800;border-radius:999px;padding:3px 10px;margin-bottom:6px;}
+  .tag-coral{background:var(--coral-soft);color:#C24B33;}
+  .tag-gold{background:var(--gold-soft);color:#9A6716;}
+  .g-cap{font-size:12.5px;color:rgba(255,255,255,.95);line-height:1.5;text-shadow:0 1px 3px rgba(0,0,0,.45);font-weight:600;}
+
+  /* ---------- ITINERARY ---------- */
+  .tabs{display:flex;gap:8px;margin:16px 0 0;flex-wrap:wrap;}
+  .tab{appearance:none;border:1.5px solid var(--line);background:#fff;color:var(--sub);font-weight:800;font-size:14px;border-radius:999px;padding:11px 18px;cursor:pointer;transition:all .15s ease;font-family:inherit;min-height:44px;}
+  .tab:hover{border-color:var(--coral);color:var(--coral);}
+  .tab:focus-visible{outline:3px solid #F5B942;outline-offset:2px;}
+  .tab[aria-selected="true"]{background:var(--grad-sunset);border-color:transparent;color:#fff;box-shadow:0 6px 16px rgba(232,101,74,.35);}
+  .panel{display:none;margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.04),0 4px 12px rgba(0,0,0,.04);}
+  .panel.active{display:block;}
+  .panel-head{display:flex;align-items:center;gap:12px;padding:20px 22px 0;flex-wrap:wrap;}
+  .panel-head h3{font-size:19px;font-weight:800;}
+  .panel-head .b-day{display:inline-block;background:var(--gold);color:#3B2412;font-size:12px;font-weight:800;border-radius:999px;padding:3px 12px;letter-spacing:.08em;}
+  .panel-map{padding:10px 22px 0;}
+  .panel-map svg{width:100%;height:auto;display:block;border-radius:12px;}
+  .timeline{padding:20px 22px 24px;}
+  .tl-item{display:flex;gap:14px;position:relative;padding:0 0 18px 0;}
+  .tl-item:last-child{padding-bottom:2px;}
+  .tl-time{flex:0 0 64px;font-size:13px;font-weight:800;color:var(--coral);font-variant-numeric:tabular-nums;padding-top:2px;text-align:right;}
+  .tl-line{flex:0 0 12px;position:relative;}
+  .tl-line::before{content:"";position:absolute;left:5px;top:8px;bottom:-8px;width:2px;background:var(--line);}
+  .tl-item:last-child .tl-line::before{display:none;}
+  .tl-line::after{content:"";position:absolute;left:1px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px var(--gold-soft);}
+  .tl-body{flex:1;padding-bottom:2px;}
+  .tl-title{font-size:15px;font-weight:700;}
+  .tl-note{font-size:12.5px;color:var(--sub);margin-top:2px;}
+  .pill{display:inline-block;font-size:11px;font-weight:800;border-radius:999px;padding:2px 9px;margin-left:6px;vertical-align:1px;}
+  .pill-ok{background:#E8F1EC;color:#2E7D54;}
+  .pill-todo{background:var(--coral-soft);color:#C24B33;}
+  .stay{margin:0 22px 22px;background:linear-gradient(135deg,#FFF3E4,#FDEDE7);border:1px solid #F5DDC2;border-radius:12px;padding:12px 16px;font-size:13.5px;font-weight:700;}
+  .stay .moon{margin-right:6px;}
+  .stay small{display:block;font-weight:600;color:var(--sub);margin-top:2px;font-size:12px;}
+
+  footer{text-align:center;padding:34px 0 30px;color:var(--sub);font-size:12.5px;font-weight:600;}
+
+  @media (max-width:720px){
+    .hero{min-height:290px;}
+    .tl-time{flex-basis:52px;}
+  }
+  .tl-link{display:inline-block;margin-top:5px;margin-right:10px;font-size:12px;font-weight:700;color:#C24B33;text-decoration:none;border-bottom:1px solid rgba(194,75,51,.35);}
+  .tl-link:hover,.tl-link:focus{border-bottom-color:#C24B33;}
+  .fab-itinerary{position:fixed;right:14px;bottom:14px;z-index:60;display:inline-flex;align-items:center;gap:7px;background:var(--grad-sunset);color:#fff;font-weight:800;font-size:13px;text-decoration:none;padding:11px 16px;border-radius:999px;box-shadow:0 6px 18px rgba(201,75,87,.35);transition:opacity .25s ease,transform .25s ease;}
+  .fab-itinerary svg{display:block;}
+  .fab-itinerary.is-hidden{opacity:0;pointer-events:none;transform:translateY(10px);}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <svg class="hero-art" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="h-sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#33265C"/>
+        <stop offset="38%" stop-color="#8E4468"/>
+        <stop offset="68%" stop-color="#E2604F"/>
+        <stop offset="100%" stop-color="#F6B95F"/>
+      </linearGradient>
+      <linearGradient id="h-sea" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#DE8A4E"/>
+        <stop offset="45%" stop-color="#95495A"/>
+        <stop offset="100%" stop-color="#3A1F3E"/>
+      </linearGradient>
+      <radialGradient id="h-glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="#FFE2A8" stop-opacity=".95"/>
+        <stop offset="100%" stop-color="#FFD08A" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect x="0" y="0" width="1200" height="400" fill="url(#h-sky)"/>
+    <ellipse cx="880" cy="252" rx="300" ry="150" fill="url(#h-glow)"/>
+    <circle cx="880" cy="252" r="54" fill="#FFE3AE"/>
+    <g fill="#FFFFFF" opacity=".14">
+      <ellipse cx="250" cy="86" rx="150" ry="20"/>
+      <ellipse cx="430" cy="122" rx="200" ry="16"/>
+      <ellipse cx="980" cy="96" rx="170" ry="18"/>
+    </g>
+    <path d="M0,258 H1200 V400 H0 Z" fill="url(#h-sea)"/>
+    <g fill="#FFD9A0" opacity=".5">
+      <rect x="856" y="268" width="48" height="7" rx="3.5"/>
+      <rect x="842" y="290" width="76" height="6" rx="3"/>
+      <rect x="820" y="314" width="120" height="6" rx="3"/>
+      <rect x="792" y="342" width="176" height="5" rx="2.5"/>
+      <rect x="760" y="372" width="240" height="5" rx="2.5"/>
+    </g>
+    <path d="M1010,258 Q1080,196 1148,214 Q1200,226 1200,258 Z" fill="#31183C" opacity=".9"/>
+    <path d="M0,258 Q90,214 190,238 Q260,254 300,258 Z" fill="#31183C" opacity=".85"/>
+    <g fill="#2A1330">
+      <path d="M148,400 Q142,300 130,222 L146,220 Q160,304 168,400 Z"/>
+      <path d="M138,222 Q84,182 34,190 Q86,196 132,238 Z"/>
+      <path d="M138,220 Q104,158 46,132 Q112,166 140,232 Z"/>
+      <path d="M140,218 Q168,152 236,128 Q176,166 152,230 Z"/>
+      <path d="M141,222 Q200,186 258,196 Q198,200 150,238 Z"/>
+      <path d="M139,214 Q140,150 118,96 Q152,152 152,216 Z"/>
+    </g>
+  </svg>
+  <div class="hero-inner">
+    <span class="hero-badge">TRAVEL SHIORI・2018 NOVEMBER</span>
+    <h1>ハワイ・オアフ島＆ハワイ島</h1>
+    <p class="sub">由依ちゃんの結婚式と、イルカと火山。ふたりで巡った 7日間の記録</p>
+    <div><span class="date-chip">2018.11.18（日）→ 11.24（土）</span></div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ============ GALLERY ============ -->
+  <section>
+    <div class="sec-head"><span class="sec-en">HIGHLIGHTS</span><span class="sec-ja">この旅のハイライト</span></div>
+    <div class="gallery">
+      <figure class="g-card">
+        <svg viewBox="0 0 400 300" role="img" aria-label="ドルフィン＆ユーのイメージイラスト">
+          <defs>
+            <linearGradient id="d-sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#8AC5E2"/><stop offset="70%" stop-color="#F7DFC2"/>
+              <stop offset="100%" stop-color="#F6C58C"/>
+            </linearGradient>
+            <linearGradient id="d-sea" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#3FA6C4"/><stop offset="100%" stop-color="#15628C"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#d-sky)"/>
+          <circle cx="312" cy="104" r="30" fill="#FFF2D4"/>
+          <g fill="#FFFFFF" opacity=".6">
+            <ellipse cx="96" cy="60" rx="52" ry="13"/><ellipse cx="228" cy="42" rx="40" ry="10"/>
+          </g>
+          <path d="M0,150 Q70,120 140,146 Q186,162 218,150 Q198,168 150,172 Q80,176 0,164 Z" fill="#2F6B4F" opacity=".55"/>
+          <path d="M0,168 H400 V300 H0 Z" fill="url(#d-sea)"/>
+          <g fill="#F6EFE4">
+            <path d="M118,196 Q160,124 226,116 Q206,140 200,168 Q194,198 168,214 Q140,230 112,222 Q126,214 118,196 Z"/>
+            <path d="M226,116 Q252,108 268,92 Q262,120 238,132 Z"/>
+            <path d="M142,220 Q118,242 90,246 Q114,224 136,212 Z"/>
+          </g>
+          <g fill="#DCEAF0">
+            <path d="M244,246 Q272,206 314,200 Q300,218 296,238 Q292,262 272,274 Q250,286 228,280 Q242,272 244,246 Z"/>
+            <path d="M314,200 Q332,194 344,182 Q340,204 324,212 Z"/>
+          </g>
+          <g stroke="#FFFFFF" stroke-width="4" fill="none" opacity=".7" stroke-linecap="round">
+            <path d="M28,232 Q64,222 100,232"/><path d="M300,286 Q334,276 368,286"/>
+            <path d="M40,272 Q86,260 132,272"/>
+          </g>
+        </svg>
+        <figcaption class="g-body"><span class="g-tag tag-gold">DAY2・ワイアナエ沖</span><div class="g-cap">朝5:25にホテルを出発。西海岸の沖まで出て、イルカに会いに行った。</div></figcaption>
+      </figure>
+      <figure class="g-card">
+        <svg viewBox="0 0 400 300" role="img" aria-label="ダイヤモンドヘッド日の出のイメージイラスト">
+          <defs>
+            <linearGradient id="s-sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#2C2C63"/><stop offset="45%" stop-color="#B4577A"/>
+              <stop offset="78%" stop-color="#F09A5C"/><stop offset="100%" stop-color="#FBD79B"/>
+            </linearGradient>
+            <radialGradient id="s-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#FFF0C4" stop-opacity=".95"/>
+              <stop offset="100%" stop-color="#FFD08A" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#s-sky)"/>
+          <ellipse cx="252" cy="206" rx="130" ry="70" fill="url(#s-glow)"/>
+          <circle cx="252" cy="204" r="26" fill="#FFF3D2"/>
+          <g fill="#FFFFFF" opacity=".28">
+            <ellipse cx="96" cy="72" rx="60" ry="10"/><ellipse cx="300" cy="104" rx="70" ry="9"/>
+          </g>
+          <path d="M0,214 H400 V232 H0 Z" fill="#7A5B7E" opacity=".55"/>
+          <path d="M0,232 Q80,214 168,228 Q260,244 400,224 V300 H0 Z" fill="#5A3B5E"/>
+          <path d="M0,262 Q120,240 236,258 Q330,272 400,256 V300 H0 Z" fill="#3A2440"/>
+          <path d="M28,300 Q60,242 118,224 Q92,258 84,300 Z" fill="#2A1830"/>
+          <g fill="#F6C58C" opacity=".9">
+            <circle cx="196" cy="284" r="3"/><circle cx="232" cy="292" r="3"/>
+            <circle cx="284" cy="278" r="3"/><circle cx="330" cy="288" r="3"/>
+            <circle cx="150" cy="292" r="3"/>
+          </g>
+        </svg>
+        <figcaption class="g-body"><span class="g-tag tag-coral">DAY3・ダイヤモンドヘッド</span><div class="g-cap">第1便プランで日の出を待つ。山頂から見たオアフの朝。</div></figcaption>
+      </figure>
+      <figure class="g-card">
+        <svg viewBox="0 0 400 300" role="img" aria-label="結婚式のイメージイラスト">
+          <defs>
+            <linearGradient id="w-sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#7CC6DE"/><stop offset="70%" stop-color="#E4F2F4"/>
+              <stop offset="100%" stop-color="#FBE6CD"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#w-sky)"/>
+          <circle cx="308" cy="88" r="30" fill="#FFF6DE"/>
+          <path d="M0,200 H400 V300 H0 Z" fill="#3FA6BC"/>
+          <path d="M0,200 Q100,192 200,202 Q300,212 400,200 L400,224 Q300,236 200,226 Q100,216 0,224 Z" fill="#77CDDC" opacity=".8"/>
+          <path d="M0,256 Q120,244 250,260 Q330,270 400,262 L400,300 L0,300 Z" fill="#F4E6CE"/>
+          <g stroke="#FFFFFF" stroke-width="9" fill="none" stroke-linecap="round">
+            <path d="M120,264 V148 Q198,100 276,148 V264"/>
+          </g>
+          <g fill="#E8654A">
+            <circle cx="146" cy="130" r="9"/><circle cx="174" cy="110" r="8"/>
+            <circle cx="204" cy="104" r="10"/><circle cx="236" cy="112" r="8"/>
+            <circle cx="262" cy="132" r="9"/>
+          </g>
+          <g fill="#3FA6BC">
+            <circle cx="159" cy="118" r="5"/><circle cx="189" cy="104" r="5"/>
+            <circle cx="220" cy="105" r="5"/><circle cx="250" cy="120" r="5"/>
+          </g>
+          <g fill="#FFFFFF" opacity=".94">
+            <circle cx="180" cy="208" r="15"/><circle cx="214" cy="208" r="15"/>
+            <path d="M162,264 Q168,226 180,226 Q192,226 198,264 Z"/>
+            <path d="M196,264 Q202,226 214,226 Q226,226 232,264 Z"/>
+          </g>
+          <g fill="#2F6B4F">
+            <path d="M352,264 Q346,204 336,164 L348,162 Q362,208 366,264 Z"/>
+            <path d="M342,164 Q304,138 272,144 Q308,150 338,176 Z"/>
+            <path d="M344,162 Q342,122 318,96 Q346,130 352,164 Z"/>
+            <path d="M346,164 Q370,126 396,114 Q370,144 356,174 Z"/>
+          </g>
+        </svg>
+        <figcaption class="g-body"><span class="g-tag tag-gold">DAY3・コオリナ</span><div class="g-cap">由依ちゃんの結婚式。式のあとはアウラニのリゾートへ。</div></figcaption>
+      </figure>
+      <figure class="g-card">
+        <svg viewBox="0 0 400 300" role="img" aria-label="キラウエア火山と溶岩ウォークのイメージイラスト">
+          <defs>
+            <linearGradient id="v-sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#1E1B3A"/><stop offset="60%" stop-color="#4A2748"/>
+              <stop offset="100%" stop-color="#8E3B36"/>
+            </linearGradient>
+            <radialGradient id="v-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#FF9A3C" stop-opacity=".9"/>
+              <stop offset="100%" stop-color="#FF6A1F" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#v-sky)"/>
+          <g fill="#FFFFFF" opacity=".7">
+            <circle cx="52" cy="40" r="1.8"/><circle cx="116" cy="26" r="1.4"/>
+            <circle cx="188" cy="48" r="1.8"/><circle cx="268" cy="30" r="1.4"/>
+            <circle cx="340" cy="56" r="1.8"/><circle cx="88" cy="76" r="1.4"/>
+            <circle cx="300" cy="86" r="1.6"/>
+          </g>
+          <ellipse cx="214" cy="150" rx="128" ry="56" fill="url(#v-glow)"/>
+          <path d="M0,182 Q90,120 214,112 Q322,106 400,150 V300 H0 Z" fill="#2A1B2C"/>
+          <path d="M150,132 Q214,104 282,134 Q248,150 210,150 Q176,150 150,132 Z" fill="#FF8A2B" opacity=".85"/>
+          <path d="M164,130 Q214,112 268,132 Q234,142 208,142 Q182,142 164,130 Z" fill="#FFD27A"/>
+          <path d="M0,206 Q120,178 244,196 Q330,208 400,192 V300 H0 Z" fill="#1E1420"/>
+          <g stroke="#FF7A22" stroke-width="4" fill="none" stroke-linecap="round" opacity=".9">
+            <path d="M40,300 Q66,258 58,214"/>
+            <path d="M150,300 Q176,262 164,222"/>
+            <path d="M262,300 Q286,264 276,226"/>
+            <path d="M348,300 Q368,270 360,240"/>
+          </g>
+          <g stroke="#FFC46B" stroke-width="2" fill="none" stroke-linecap="round" opacity=".85">
+            <path d="M96,300 Q112,272 106,246"/><path d="M208,300 Q226,272 218,248"/>
+            <path d="M316,300 Q330,276 324,254"/>
+          </g>
+          <g fill="#0F0A12">
+            <circle cx="120" cy="242" r="7"/>
+            <path d="M113,250 h14 v22 l-6,26 h-4 l-6,-26 z"/>
+            <circle cx="146" cy="250" r="6"/>
+            <path d="M140,257 h12 v20 l-5,22 h-3 l-5,-22 z"/>
+          </g>
+        </svg>
+        <figcaption class="g-body"><span class="g-tag tag-coral">DAY4・ハワイ島</span><div class="g-cap">日帰りツアーで島を渡り、キラウエアの火口と溶岩台地へ。</div></figcaption>
+      </figure>
+      <figure class="g-card">
+        <svg viewBox="0 0 400 300" role="img" aria-label="日立の木のイメージイラスト">
+          <defs>
+            <linearGradient id="t-sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#6FB8DE"/><stop offset="100%" stop-color="#DCEFF2"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#t-sky)"/>
+          <g fill="#FFFFFF" opacity=".7">
+            <ellipse cx="86" cy="54" rx="54" ry="14"/><ellipse cx="290" cy="40" rx="46" ry="11"/>
+            <ellipse cx="200" cy="80" rx="70" ry="12"/>
+          </g>
+          <path d="M0,214 Q100,196 200,208 Q300,220 400,206 V300 H0 Z" fill="#63A45C"/>
+          <path d="M0,244 Q120,228 240,246 Q330,258 400,244 V300 H0 Z" fill="#4F8C4B"/>
+          <g fill="#3F7A44">
+            <ellipse cx="200" cy="150" rx="150" ry="46"/>
+            <ellipse cx="120" cy="164" rx="80" ry="30"/>
+            <ellipse cx="286" cy="162" rx="76" ry="28"/>
+          </g>
+          <g fill="#4E8F52" opacity=".9">
+            <ellipse cx="196" cy="136" rx="120" ry="32"/>
+            <ellipse cx="148" cy="126" rx="60" ry="22"/>
+            <ellipse cx="256" cy="128" rx="58" ry="20"/>
+          </g>
+          <g stroke="#6B4B33" stroke-width="7" fill="none" stroke-linecap="round">
+            <path d="M200,238 V176"/>
+            <path d="M200,196 Q172,182 152,170"/>
+            <path d="M200,192 Q230,180 252,168"/>
+          </g>
+          <ellipse cx="200" cy="240" rx="46" ry="9" fill="#3B6E3C" opacity=".5"/>
+        </svg>
+        <figcaption class="g-body"><span class="g-tag tag-gold">DAY5・日立の木</span><div class="g-cap">CMでおなじみのモンキーポッド。最後の一日はモアナルア・ガーデンへ。</div></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ ITINERARY ============ -->
+  <section id="itinerary">
+    <div class="sec-head"><span class="sec-en">ITINERARY</span><span class="sec-ja">オアフ島とハワイ島の行程</span></div>
+    <div class="tabs" role="tablist" aria-label="日程切り替え">
+      <button class="tab" role="tab" id="tab-1" aria-selected="true" aria-controls="panel-1">DAY1</button>
+      <button class="tab" role="tab" id="tab-2" aria-selected="false" aria-controls="panel-2">DAY2</button>
+      <button class="tab" role="tab" id="tab-3" aria-selected="false" aria-controls="panel-3">DAY3</button>
+      <button class="tab" role="tab" id="tab-4" aria-selected="false" aria-controls="panel-4">DAY4</button>
+      <button class="tab" role="tab" id="tab-5" aria-selected="false" aria-controls="panel-5">DAY5</button>
+      <button class="tab" role="tab" id="tab-6" aria-selected="false" aria-controls="panel-6">DAY6</button>
+    </div>
+
+    <!-- DAY 1 -->
+    <div class="panel active" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
+      <div class="panel-head"><span class="b-day">DAY 1</span><h3>ホノルル到着。カメハメハ大王像と、ハワイ出雲大社</h3></div>
+      <div class="panel-map"><svg viewBox="0 0 760 300" role="img" aria-label="DAY1 のルートマップ" style="width:100%;height:auto;display:block;">
+        <rect x="0" y="0" width="760" height="300" rx="14" fill="#D6E8ED"/>
+        <path d="M56,112 Q104,94 152,68 Q232,44 312,44 Q360,58 392,86 Q416,102 430,118 Q500,152 556,182 Q536,194 516,200 Q480,216 446,230 Q424,236 400,235 Q374,238 352,238 Q330,238 312,234 L306,218 L298,234 Q250,232 196,230 Q186,228 176,224 Q140,206 120,180 Q92,150 56,112 Z" fill="#FBF0E3"/>
+        <path d="M328,106 L348,81 L368,106 Z" fill="#EDDFC9"/>
+        <path d="M356,127.4 L378,99.9 L400,127.4 Z" fill="#EDDFC9"/>
+        <path d="M388,148 L408,123 L428,148 Z" fill="#EDDFC9"/>
+        <path d="M418,168.6 L436,146.1 L454,168.6 Z" fill="#EDDFC9"/>
+        <path d="M114,152.6 L132,130.1 L150,152.6 Z" fill="#EDDFC9"/>
+        <path d="M136,186 L156,161 L176,186 Z" fill="#EDDFC9"/>
+        <path d="M163,213.9 L180,192.65 L197,213.9 Z" fill="#EDDFC9"/>
+        <path d="M234,187.2 L250,167.2 L266,187.2 Z" fill="#EDDFC9"/>
+        <path d="M272,201.8 L286,184.3 L300,201.8 Z" fill="#EDDFC9"/>
+        <path d="M612,60 Q640,44 668,50 Q700,58 726,84 Q744,102 730,116 Q700,130 664,124 Q628,116 612,94 Q602,74 612,60 Z" fill="#FBF0E3"/>
+        <path d="M656,89.2 L672,69.2 L688,89.2 Z" fill="#EDDFC9"/>
+        <path d="M684,107.8 L698,90.3 L712,107.8 Z" fill="#EDDFC9"/>
+        <text x="228" y="152" font-size="13" font-weight="700" fill="#CBB9A2" text-anchor="middle">オアフ島</text>
+        <text x="646" y="256" font-size="13" font-weight="700" fill="#8FBBC8">太平洋</text>
+        <path d="M348,234 Q324.4,227.2 300,230" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M400,232 Q419.2,222 440,228" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M440,228 Q475.5,219.5 505,198" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M400,232 Q299.04,252 200,224" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M200,224 Q134,211.1 86,164" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M400,232 Q512.08,110.32 676,88" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M400,232 Q373.8,227.8 348,234" stroke="#E2543F" stroke-width="4" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <text x="292" y="208" font-size="12" font-weight="600" fill="#B04A38" text-anchor="middle">レアレアトローリー</text>
+        <circle cx="86" cy="164" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="86" y="186" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">ワイアナエ沖</text>
+        <text x="86" y="202" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY2・ドルフィン</text>
+        <circle cx="200" cy="224" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="176" y="248" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">アウラニ</text>
+        <text x="176" y="264" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY3・コオリナ</text>
+        <circle cx="300" cy="230" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="280" y="254" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">日立の木</text>
+        <circle cx="348" cy="234" r="9" fill="#E2543F" stroke="#fff" stroke-width="3"/>
+        <text x="384" y="266" font-size="16" font-weight="800" fill="#3B2A22" text-anchor="middle">ダウンタウン</text>
+        <text x="384" y="282" font-size="11" font-weight="600" fill="#A08876" text-anchor="middle">DAY1・大王像と出雲大社</text>
+        <circle cx="400" cy="232" r="9" fill="#E2543F" stroke="#fff" stroke-width="3"/>
+        <text x="400" y="206" font-size="16" font-weight="800" fill="#3B2A22" text-anchor="middle">ワイキキ</text>
+        <text x="400" y="222" font-size="11" font-weight="600" fill="#A08876" text-anchor="middle">滞在ホテル</text>
+        <circle cx="440" cy="228" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="456" y="244" font-size="16" font-weight="800" fill="#B6A794" text-anchor="start">ダイヤモンドヘッド</text>
+        <text x="456" y="260" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="start">DAY3・日の出ツアー</text>
+        <circle cx="505" cy="198" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="521" y="192" font-size="16" font-weight="800" fill="#B6A794" text-anchor="start">カハラ／イースト</text>
+        <text x="521" y="208" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="start">DAY2・海岸ドライブ</text>
+        <circle cx="676" cy="88" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="672" y="148" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">ハワイ島</text>
+        <text x="672" y="164" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY4・ヒロとキラウエア</text>
+        </svg></div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-time">到着</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">ホノルル到着 → ホテル送迎でワイキキへ</div><div class="tl-note">空港からホテルまでは送迎付き。荷物を置いて、さっそく街へ。</div></div></div>
+        <div class="tl-item"><div class="tl-time">日中</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">レアレアトローリーで市内へ</div><div class="tl-note">トローリーを乗り継いでダウンタウン方面へ。</div></div></div>
+        <div class="tl-item"><div class="tl-time">日中</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">カメハメハ大王像</div><div class="tl-note">ダウンタウンの定番。翌々日にはハワイ島・ヒロでも大王像に会うことになる。</div></div></div>
+        <div class="tl-item"><div class="tl-time">日中</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">出雲大社（ハワイ出雲大社）</div><div class="tl-note">ダウンタウンからほど近い、ハワイの出雲大社へお参り。</div></div></div>
+        <div class="tl-item"><div class="tl-time">食事</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">エッグスンシングス</div><div class="tl-note">山盛りホイップのパンケーキで、ハワイに来た実感。</div></div></div>
+      </div>
+      <div class="stay"><span class="moon">🌙</span>泊：ワイキキ<small>送迎ピックアップ場所はイリカイ ワイキキ／アラモアナ通り側 フラッグポール前</small></div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2">
+      <div class="panel-head"><span class="b-day">DAY 2</span><h3>早朝5:25出発。ドルフィン＆ユーと、イーストコーストライン</h3></div>
+      <div class="panel-map"><svg viewBox="0 0 760 300" role="img" aria-label="DAY2 のルートマップ" style="width:100%;height:auto;display:block;">
+        <rect x="0" y="0" width="760" height="300" rx="14" fill="#D6E8ED"/>
+        <path d="M56,112 Q104,94 152,68 Q232,44 312,44 Q360,58 392,86 Q416,102 430,118 Q500,152 556,182 Q536,194 516,200 Q480,216 446,230 Q424,236 400,235 Q374,238 352,238 Q330,238 312,234 L306,218 L298,234 Q250,232 196,230 Q186,228 176,224 Q140,206 120,180 Q92,150 56,112 Z" fill="#FBF0E3"/>
+        <path d="M328,106 L348,81 L368,106 Z" fill="#EDDFC9"/>
+        <path d="M356,127.4 L378,99.9 L400,127.4 Z" fill="#EDDFC9"/>
+        <path d="M388,148 L408,123 L428,148 Z" fill="#EDDFC9"/>
+        <path d="M418,168.6 L436,146.1 L454,168.6 Z" fill="#EDDFC9"/>
+        <path d="M114,152.6 L132,130.1 L150,152.6 Z" fill="#EDDFC9"/>
+        <path d="M136,186 L156,161 L176,186 Z" fill="#EDDFC9"/>
+        <path d="M163,213.9 L180,192.65 L197,213.9 Z" fill="#EDDFC9"/>
+        <path d="M234,187.2 L250,167.2 L266,187.2 Z" fill="#EDDFC9"/>
+        <path d="M272,201.8 L286,184.3 L300,201.8 Z" fill="#EDDFC9"/>
+        <path d="M612,60 Q640,44 668,50 Q700,58 726,84 Q744,102 730,116 Q700,130 664,124 Q628,116 612,94 Q602,74 612,60 Z" fill="#FBF0E3"/>
+        <path d="M656,89.2 L672,69.2 L688,89.2 Z" fill="#EDDFC9"/>
+        <path d="M684,107.8 L698,90.3 L712,107.8 Z" fill="#EDDFC9"/>
+        <text x="228" y="152" font-size="13" font-weight="700" fill="#CBB9A2" text-anchor="middle">オアフ島</text>
+        <text x="646" y="256" font-size="13" font-weight="700" fill="#8FBBC8">太平洋</text>
+        <path d="M400,232 Q373.8,227.8 348,234" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M348,234 Q324.4,227.2 300,230" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M400,232 Q512.08,110.32 676,88" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M400,232 Q299.04,252 200,224" stroke="#E9A13B" stroke-width="4" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M200,224 Q134,211.1 86,164" stroke="#E9A13B" stroke-width="4" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M400,232 Q419.2,222 440,228" stroke="#E9A13B" stroke-width="4" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M440,228 Q475.5,219.5 505,198" stroke="#E9A13B" stroke-width="4" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <text x="296" y="212" font-size="12" font-weight="600" fill="#B07A25" text-anchor="middle">5:25 ピックアップ</text>
+        <circle cx="86" cy="164" r="9" fill="#E9A13B" stroke="#fff" stroke-width="3"/>
+        <text x="86" y="186" font-size="16" font-weight="800" fill="#3B2A22" text-anchor="middle">ワイアナエ沖</text>
+        <text x="86" y="202" font-size="11" font-weight="600" fill="#A08876" text-anchor="middle">DAY2・ドルフィン</text>
+        <circle cx="200" cy="224" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="176" y="248" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">アウラニ</text>
+        <text x="176" y="264" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY3・コオリナ</text>
+        <circle cx="300" cy="230" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="280" y="254" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">日立の木</text>
+        <circle cx="348" cy="234" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="384" y="266" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">ダウンタウン</text>
+        <text x="384" y="282" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY1・大王像と出雲大社</text>
+        <circle cx="400" cy="232" r="9" fill="#E9A13B" stroke="#fff" stroke-width="3"/>
+        <text x="400" y="206" font-size="16" font-weight="800" fill="#3B2A22" text-anchor="middle">ワイキキ</text>
+        <text x="400" y="222" font-size="11" font-weight="600" fill="#A08876" text-anchor="middle">滞在ホテル</text>
+        <circle cx="440" cy="228" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="456" y="244" font-size="16" font-weight="800" fill="#B6A794" text-anchor="start">ダイヤモンドヘッド</text>
+        <text x="456" y="260" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="start">DAY3・日の出ツアー</text>
+        <circle cx="505" cy="198" r="9" fill="#E9A13B" stroke="#fff" stroke-width="3"/>
+        <text x="521" y="192" font-size="16" font-weight="800" fill="#3B2A22" text-anchor="start">カハラ／イースト</text>
+        <text x="521" y="208" font-size="11" font-weight="600" fill="#A08876" text-anchor="start">DAY2・海岸ドライブ</text>
+        <circle cx="676" cy="88" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="672" y="148" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">ハワイ島</text>
+        <text x="672" y="164" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY4・ヒロとキラウエア</text>
+        </svg></div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-time">5:25</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">イリカイ ワイキキ／アラモアナ通り側 フラッグポール前でピックアップ<span class="pill pill-ok">予約ツアー</span></div><div class="tl-note">まだ暗いうちに集合。西海岸のワイアナエ方面へ。</div></div></div>
+        <div class="tl-item"><div class="tl-time">午前</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">ドルフィン＆ユー（DOLPHINS AND YOU）<span class="pill pill-ok">予約ツアー</span></div><div class="tl-note">H.I.S.手配・大人2名。確認番号 emvp。現地連絡先 (1)808-923-3412。</div><a class="tl-link" href="https://activities.his-j.com/TourLeaf/HNL0018/" target="_blank" rel="noopener">ドルフィン＆ユー（H.I.S.） ↗</a></div></div>
+        <div class="tl-item"><div class="tl-time">午後</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">イーストコーストライン観光</div><div class="tl-note">ダイヤモンドヘッドから東へ、海沿いのドライブコース。</div></div></div>
+        <div class="tl-item"><div class="tl-time">午後</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">カハラモール</div><div class="tl-note">地元感のあるショッピングモールでひと休み。</div></div></div>
+      </div>
+      <div class="stay"><span class="moon">🌙</span>泊：ワイキキ<small>早朝から夕方まで、島をぐるりと回った一日</small></div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3">
+      <div class="panel-head"><span class="b-day">DAY 3</span><h3>日の出のダイヤモンドヘッド、由依ちゃんの結婚式</h3></div>
+      <div class="panel-map"><svg viewBox="0 0 760 300" role="img" aria-label="DAY3 のルートマップ" style="width:100%;height:auto;display:block;">
+        <rect x="0" y="0" width="760" height="300" rx="14" fill="#D6E8ED"/>
+        <path d="M56,112 Q104,94 152,68 Q232,44 312,44 Q360,58 392,86 Q416,102 430,118 Q500,152 556,182 Q536,194 516,200 Q480,216 446,230 Q424,236 400,235 Q374,238 352,238 Q330,238 312,234 L306,218 L298,234 Q250,232 196,230 Q186,228 176,224 Q140,206 120,180 Q92,150 56,112 Z" fill="#FBF0E3"/>
+        <path d="M328,106 L348,81 L368,106 Z" fill="#EDDFC9"/>
+        <path d="M356,127.4 L378,99.9 L400,127.4 Z" fill="#EDDFC9"/>
+        <path d="M388,148 L408,123 L428,148 Z" fill="#EDDFC9"/>
+        <path d="M418,168.6 L436,146.1 L454,168.6 Z" fill="#EDDFC9"/>
+        <path d="M114,152.6 L132,130.1 L150,152.6 Z" fill="#EDDFC9"/>
+        <path d="M136,186 L156,161 L176,186 Z" fill="#EDDFC9"/>
+        <path d="M163,213.9 L180,192.65 L197,213.9 Z" fill="#EDDFC9"/>
+        <path d="M234,187.2 L250,167.2 L266,187.2 Z" fill="#EDDFC9"/>
+        <path d="M272,201.8 L286,184.3 L300,201.8 Z" fill="#EDDFC9"/>
+        <path d="M612,60 Q640,44 668,50 Q700,58 726,84 Q744,102 730,116 Q700,130 664,124 Q628,116 612,94 Q602,74 612,60 Z" fill="#FBF0E3"/>
+        <path d="M656,89.2 L672,69.2 L688,89.2 Z" fill="#EDDFC9"/>
+        <path d="M684,107.8 L698,90.3 L712,107.8 Z" fill="#EDDFC9"/>
+        <text x="228" y="152" font-size="13" font-weight="700" fill="#CBB9A2" text-anchor="middle">オアフ島</text>
+        <text x="646" y="256" font-size="13" font-weight="700" fill="#8FBBC8">太平洋</text>
+        <path d="M400,232 Q373.8,227.8 348,234" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M348,234 Q324.4,227.2 300,230" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M440,228 Q475.5,219.5 505,198" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M200,224 Q134,211.1 86,164" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M400,232 Q512.08,110.32 676,88" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M400,232 Q419.2,222 440,228" stroke="#9C6B3F" stroke-width="4" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M400,232 Q299.04,252 200,224" stroke="#9C6B3F" stroke-width="4" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <text x="300" y="212" font-size="12" font-weight="600" fill="#82573A" text-anchor="middle">午後はコオリナへ</text>
+        <circle cx="86" cy="164" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="86" y="186" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">ワイアナエ沖</text>
+        <text x="86" y="202" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY2・ドルフィン</text>
+        <circle cx="200" cy="224" r="9" fill="#9C6B3F" stroke="#fff" stroke-width="3"/>
+        <text x="176" y="248" font-size="16" font-weight="800" fill="#3B2A22" text-anchor="middle">アウラニ</text>
+        <text x="176" y="264" font-size="11" font-weight="600" fill="#A08876" text-anchor="middle">DAY3・コオリナ</text>
+        <circle cx="300" cy="230" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="280" y="254" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">日立の木</text>
+        <circle cx="348" cy="234" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="384" y="266" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">ダウンタウン</text>
+        <text x="384" y="282" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY1・大王像と出雲大社</text>
+        <circle cx="400" cy="232" r="9" fill="#9C6B3F" stroke="#fff" stroke-width="3"/>
+        <text x="400" y="206" font-size="16" font-weight="800" fill="#3B2A22" text-anchor="middle">ワイキキ</text>
+        <text x="400" y="222" font-size="11" font-weight="600" fill="#A08876" text-anchor="middle">滞在ホテル</text>
+        <circle cx="440" cy="228" r="9" fill="#9C6B3F" stroke="#fff" stroke-width="3"/>
+        <text x="456" y="244" font-size="16" font-weight="800" fill="#3B2A22" text-anchor="start">ダイヤモンドヘッド</text>
+        <text x="456" y="260" font-size="11" font-weight="600" fill="#A08876" text-anchor="start">DAY3・日の出ツアー</text>
+        <circle cx="505" cy="198" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="521" y="192" font-size="16" font-weight="800" fill="#B6A794" text-anchor="start">カハラ／イースト</text>
+        <text x="521" y="208" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="start">DAY2・海岸ドライブ</text>
+        <circle cx="676" cy="88" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="672" y="148" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">ハワイ島</text>
+        <text x="672" y="164" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY4・ヒロとキラウエア</text>
+        </svg></div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-time">早朝</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">ダイヤモンドヘッド日の出ツアー（第1便プラン）<span class="pill pill-ok">予約ツアー</span></div><div class="tl-note">受付番号 LT18110356970・大人（12歳以上）2名。山頂で日の出を待つ第1便。</div></div></div>
+        <div class="tl-item"><div class="tl-time">日中</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">由依ちゃんの結婚式</div><div class="tl-note">この旅のメインイベント。</div></div></div>
+        <div class="tl-item"><div class="tl-time">午後</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">アウラニ・ディズニー・リゾート（コオリナ）</div><div class="tl-note">ワイキキから西へ、コオリナのリゾートエリアへ。</div></div></div>
+      </div>
+      <div class="stay"><span class="moon">🌙</span>泊：ワイキキ<small>日の出から結婚式まで、いちばん長い一日</small></div>
+    </div>
+
+    <!-- DAY 4 -->
+    <div class="panel" id="panel-4" role="tabpanel" aria-labelledby="tab-4">
+      <div class="panel-head"><span class="b-day">DAY 4</span><h3>ハワイ島日帰り。キラウエア火山と溶岩ウォーク</h3></div>
+      <div class="panel-map"><svg viewBox="0 0 760 300" role="img" aria-label="DAY4 のルートマップ" style="width:100%;height:auto;display:block;">
+        <rect x="0" y="0" width="760" height="300" rx="14" fill="#D6E8ED"/>
+        <path d="M56,112 Q104,94 152,68 Q232,44 312,44 Q360,58 392,86 Q416,102 430,118 Q500,152 556,182 Q536,194 516,200 Q480,216 446,230 Q424,236 400,235 Q374,238 352,238 Q330,238 312,234 L306,218 L298,234 Q250,232 196,230 Q186,228 176,224 Q140,206 120,180 Q92,150 56,112 Z" fill="#FBF0E3"/>
+        <path d="M328,106 L348,81 L368,106 Z" fill="#EDDFC9"/>
+        <path d="M356,127.4 L378,99.9 L400,127.4 Z" fill="#EDDFC9"/>
+        <path d="M388,148 L408,123 L428,148 Z" fill="#EDDFC9"/>
+        <path d="M418,168.6 L436,146.1 L454,168.6 Z" fill="#EDDFC9"/>
+        <path d="M114,152.6 L132,130.1 L150,152.6 Z" fill="#EDDFC9"/>
+        <path d="M136,186 L156,161 L176,186 Z" fill="#EDDFC9"/>
+        <path d="M163,213.9 L180,192.65 L197,213.9 Z" fill="#EDDFC9"/>
+        <path d="M234,187.2 L250,167.2 L266,187.2 Z" fill="#EDDFC9"/>
+        <path d="M272,201.8 L286,184.3 L300,201.8 Z" fill="#EDDFC9"/>
+        <path d="M612,60 Q640,44 668,50 Q700,58 726,84 Q744,102 730,116 Q700,130 664,124 Q628,116 612,94 Q602,74 612,60 Z" fill="#FBF0E3"/>
+        <path d="M656,89.2 L672,69.2 L688,89.2 Z" fill="#EDDFC9"/>
+        <path d="M684,107.8 L698,90.3 L712,107.8 Z" fill="#EDDFC9"/>
+        <text x="228" y="152" font-size="13" font-weight="700" fill="#CBB9A2" text-anchor="middle">オアフ島</text>
+        <text x="646" y="256" font-size="13" font-weight="700" fill="#8FBBC8">太平洋</text>
+        <path d="M400,232 Q373.8,227.8 348,234" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M348,234 Q324.4,227.2 300,230" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M400,232 Q419.2,222 440,228" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M440,228 Q475.5,219.5 505,198" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M400,232 Q299.04,252 200,224" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M200,224 Q134,211.1 86,164" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M400,232 Q512.08,110.32 676,88" stroke="#E2543F" stroke-width="4" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <text x="452" y="132" font-size="12" font-weight="600" fill="#B04A38" text-anchor="start">飛行機でハワイ島へ</text>
+        <circle cx="86" cy="164" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="86" y="186" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">ワイアナエ沖</text>
+        <text x="86" y="202" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY2・ドルフィン</text>
+        <circle cx="200" cy="224" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="176" y="248" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">アウラニ</text>
+        <text x="176" y="264" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY3・コオリナ</text>
+        <circle cx="300" cy="230" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="280" y="254" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">日立の木</text>
+        <circle cx="348" cy="234" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="384" y="266" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">ダウンタウン</text>
+        <text x="384" y="282" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY1・大王像と出雲大社</text>
+        <circle cx="400" cy="232" r="9" fill="#E2543F" stroke="#fff" stroke-width="3"/>
+        <text x="400" y="206" font-size="16" font-weight="800" fill="#3B2A22" text-anchor="middle">ワイキキ</text>
+        <text x="400" y="222" font-size="11" font-weight="600" fill="#A08876" text-anchor="middle">滞在ホテル</text>
+        <circle cx="440" cy="228" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="456" y="244" font-size="16" font-weight="800" fill="#B6A794" text-anchor="start">ダイヤモンドヘッド</text>
+        <text x="456" y="260" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="start">DAY3・日の出ツアー</text>
+        <circle cx="505" cy="198" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="521" y="192" font-size="16" font-weight="800" fill="#B6A794" text-anchor="start">カハラ／イースト</text>
+        <text x="521" y="208" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="start">DAY2・海岸ドライブ</text>
+        <circle cx="676" cy="88" r="9" fill="#E2543F" stroke="#fff" stroke-width="3"/>
+        <text x="672" y="148" font-size="16" font-weight="800" fill="#3B2A22" text-anchor="middle">ハワイ島</text>
+        <text x="672" y="164" font-size="11" font-weight="600" fill="#A08876" text-anchor="middle">DAY4・ヒロとキラウエア</text>
+        </svg></div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-time">早朝</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">オアフ島発、ハワイ島へ<span class="pill pill-ok">予約ツアー</span></div><div class="tl-note">H.I.S.「【オアフ島発着】ハワイ島日帰り 溶岩ウォーク・ナイトツアー（新行程）」受付番号 LT18110320055・大人2名・ツアー代金 91,500円。Notionには立ち寄り先だけが残っているので、順番はツアー行程からの並べ直し。</div></div></div>
+        <div class="tl-item"><div class="tl-time">午前</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">ヒロダウンタウン</div><div class="tl-note">ハワイ島の東側、雨の似合う古い港町。</div></div></div>
+        <div class="tl-item"><div class="tl-time">午前</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">カメハメハ大王像</div><div class="tl-note">ヒロの大王像。DAY1のホノルルの像とはポーズ違い。</div></div></div>
+        <div class="tl-item"><div class="tl-time">昼</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">ロコモコ</div><div class="tl-note">ハワイ島でのお昼ごはん。</div></div></div>
+        <div class="tl-item"><div class="tl-time">午後</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">火山ビジターセンター</div><div class="tl-note">ハワイ火山国立公園のビジターセンターで、火山のいまを知る。</div></div></div>
+        <div class="tl-item"><div class="tl-time">午後</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">キラウエア火山火口</div><div class="tl-note">2018年の大噴火のあとのキラウエア。火口を望む。</div></div></div>
+        <div class="tl-item"><div class="tl-time">午後</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">マグマ洞窟</div><div class="tl-note">溶岩が流れたあとにできたトンネルの中へ。</div></div></div>
+        <div class="tl-item"><div class="tl-time">夕方〜夜</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">溶岩台地／溶岩ウォーク</div><div class="tl-note">暗くなってからの溶岩ウォークがこのツアーのハイライト。</div></div></div>
+        <div class="tl-item"><div class="tl-time">夜</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">オアフ島へ戻る</div><div class="tl-note">日帰りツアーなので、その日のうちにワイキキへ。</div></div></div>
+      </div>
+      <div class="stay"><span class="moon">🌙</span>泊：ワイキキ<small>飛行機で島を渡って、火山を歩いた日帰り旅</small></div>
+    </div>
+
+    <!-- DAY 5 -->
+    <div class="panel" id="panel-5" role="tabpanel" aria-labelledby="tab-5">
+      <div class="panel-head"><span class="b-day">DAY 5</span><h3>グーフィーカフェの朝ごはんと、日立の木</h3></div>
+      <div class="panel-map"><svg viewBox="0 0 760 300" role="img" aria-label="DAY5 のルートマップ" style="width:100%;height:auto;display:block;">
+        <rect x="0" y="0" width="760" height="300" rx="14" fill="#D6E8ED"/>
+        <path d="M56,112 Q104,94 152,68 Q232,44 312,44 Q360,58 392,86 Q416,102 430,118 Q500,152 556,182 Q536,194 516,200 Q480,216 446,230 Q424,236 400,235 Q374,238 352,238 Q330,238 312,234 L306,218 L298,234 Q250,232 196,230 Q186,228 176,224 Q140,206 120,180 Q92,150 56,112 Z" fill="#FBF0E3"/>
+        <path d="M328,106 L348,81 L368,106 Z" fill="#EDDFC9"/>
+        <path d="M356,127.4 L378,99.9 L400,127.4 Z" fill="#EDDFC9"/>
+        <path d="M388,148 L408,123 L428,148 Z" fill="#EDDFC9"/>
+        <path d="M418,168.6 L436,146.1 L454,168.6 Z" fill="#EDDFC9"/>
+        <path d="M114,152.6 L132,130.1 L150,152.6 Z" fill="#EDDFC9"/>
+        <path d="M136,186 L156,161 L176,186 Z" fill="#EDDFC9"/>
+        <path d="M163,213.9 L180,192.65 L197,213.9 Z" fill="#EDDFC9"/>
+        <path d="M234,187.2 L250,167.2 L266,187.2 Z" fill="#EDDFC9"/>
+        <path d="M272,201.8 L286,184.3 L300,201.8 Z" fill="#EDDFC9"/>
+        <path d="M612,60 Q640,44 668,50 Q700,58 726,84 Q744,102 730,116 Q700,130 664,124 Q628,116 612,94 Q602,74 612,60 Z" fill="#FBF0E3"/>
+        <path d="M656,89.2 L672,69.2 L688,89.2 Z" fill="#EDDFC9"/>
+        <path d="M684,107.8 L698,90.3 L712,107.8 Z" fill="#EDDFC9"/>
+        <text x="228" y="152" font-size="13" font-weight="700" fill="#CBB9A2" text-anchor="middle">オアフ島</text>
+        <text x="646" y="256" font-size="13" font-weight="700" fill="#8FBBC8">太平洋</text>
+        <path d="M400,232 Q419.2,222 440,228" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M440,228 Q475.5,219.5 505,198" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M400,232 Q299.04,252 200,224" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M200,224 Q134,211.1 86,164" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M400,232 Q512.08,110.32 676,88" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M400,232 Q373.8,227.8 348,234" stroke="#E9A13B" stroke-width="4" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M348,234 Q324.4,227.2 300,230" stroke="#E9A13B" stroke-width="4" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <text x="250" y="214" font-size="12" font-weight="600" fill="#B07A25" text-anchor="middle">モアナルア・ガーデン</text>
+        <circle cx="86" cy="164" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="86" y="186" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">ワイアナエ沖</text>
+        <text x="86" y="202" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY2・ドルフィン</text>
+        <circle cx="200" cy="224" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="176" y="248" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">アウラニ</text>
+        <text x="176" y="264" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY3・コオリナ</text>
+        <circle cx="300" cy="230" r="9" fill="#E9A13B" stroke="#fff" stroke-width="3"/>
+        <text x="280" y="254" font-size="16" font-weight="800" fill="#3B2A22" text-anchor="middle">日立の木</text>
+        <circle cx="348" cy="234" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="384" y="266" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">ダウンタウン</text>
+        <text x="384" y="282" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY1・大王像と出雲大社</text>
+        <circle cx="400" cy="232" r="9" fill="#E9A13B" stroke="#fff" stroke-width="3"/>
+        <text x="400" y="206" font-size="16" font-weight="800" fill="#3B2A22" text-anchor="middle">ワイキキ</text>
+        <text x="400" y="222" font-size="11" font-weight="600" fill="#A08876" text-anchor="middle">滞在ホテル</text>
+        <circle cx="440" cy="228" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="456" y="244" font-size="16" font-weight="800" fill="#B6A794" text-anchor="start">ダイヤモンドヘッド</text>
+        <text x="456" y="260" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="start">DAY3・日の出ツアー</text>
+        <circle cx="505" cy="198" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="521" y="192" font-size="16" font-weight="800" fill="#B6A794" text-anchor="start">カハラ／イースト</text>
+        <text x="521" y="208" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="start">DAY2・海岸ドライブ</text>
+        <circle cx="676" cy="88" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="672" y="148" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">ハワイ島</text>
+        <text x="672" y="164" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY4・ヒロとキラウエア</text>
+        </svg></div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-time">朝</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">グーフィーカフェ＆ダイナー</div><div class="tl-note">ワイキキ西側の人気カフェで朝ごはん。</div></div></div>
+        <div class="tl-item"><div class="tl-time">日中</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">日立の木</div><div class="tl-note">日立のCMで有名なモンキーポッドの木（モアナルア・ガーデン）。</div></div></div>
+      </div>
+      <div class="stay"><span class="moon">🌙</span>泊：ワイキキ<small>最後の一日は、のんびりと</small></div>
+    </div>
+
+    <!-- DAY 6 -->
+    <div class="panel" id="panel-6" role="tabpanel" aria-labelledby="tab-6">
+      <div class="panel-head"><span class="b-day">DAY 6</span><h3>ホノルルから帰路へ。おつかれさま！</h3></div>
+      <div class="panel-map"><svg viewBox="0 0 760 300" role="img" aria-label="DAY6 のルートマップ" style="width:100%;height:auto;display:block;">
+        <rect x="0" y="0" width="760" height="300" rx="14" fill="#D6E8ED"/>
+        <path d="M56,112 Q104,94 152,68 Q232,44 312,44 Q360,58 392,86 Q416,102 430,118 Q500,152 556,182 Q536,194 516,200 Q480,216 446,230 Q424,236 400,235 Q374,238 352,238 Q330,238 312,234 L306,218 L298,234 Q250,232 196,230 Q186,228 176,224 Q140,206 120,180 Q92,150 56,112 Z" fill="#FBF0E3"/>
+        <path d="M328,106 L348,81 L368,106 Z" fill="#EDDFC9"/>
+        <path d="M356,127.4 L378,99.9 L400,127.4 Z" fill="#EDDFC9"/>
+        <path d="M388,148 L408,123 L428,148 Z" fill="#EDDFC9"/>
+        <path d="M418,168.6 L436,146.1 L454,168.6 Z" fill="#EDDFC9"/>
+        <path d="M114,152.6 L132,130.1 L150,152.6 Z" fill="#EDDFC9"/>
+        <path d="M136,186 L156,161 L176,186 Z" fill="#EDDFC9"/>
+        <path d="M163,213.9 L180,192.65 L197,213.9 Z" fill="#EDDFC9"/>
+        <path d="M234,187.2 L250,167.2 L266,187.2 Z" fill="#EDDFC9"/>
+        <path d="M272,201.8 L286,184.3 L300,201.8 Z" fill="#EDDFC9"/>
+        <path d="M612,60 Q640,44 668,50 Q700,58 726,84 Q744,102 730,116 Q700,130 664,124 Q628,116 612,94 Q602,74 612,60 Z" fill="#FBF0E3"/>
+        <path d="M656,89.2 L672,69.2 L688,89.2 Z" fill="#EDDFC9"/>
+        <path d="M684,107.8 L698,90.3 L712,107.8 Z" fill="#EDDFC9"/>
+        <text x="228" y="152" font-size="13" font-weight="700" fill="#CBB9A2" text-anchor="middle">オアフ島</text>
+        <text x="646" y="256" font-size="13" font-weight="700" fill="#8FBBC8">太平洋</text>
+        <path d="M400,232 Q373.8,227.8 348,234" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M348,234 Q324.4,227.2 300,230" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M400,232 Q419.2,222 440,228" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M440,228 Q475.5,219.5 505,198" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M400,232 Q299.04,252 200,224" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M200,224 Q134,211.1 86,164" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M400,232 Q512.08,110.32 676,88" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <text x="330" y="214" font-size="12" font-weight="600" fill="#82573A" text-anchor="middle">送迎で空港へ</text>
+        <circle cx="86" cy="164" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="86" y="186" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">ワイアナエ沖</text>
+        <text x="86" y="202" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY2・ドルフィン</text>
+        <circle cx="200" cy="224" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="176" y="248" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">アウラニ</text>
+        <text x="176" y="264" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY3・コオリナ</text>
+        <circle cx="300" cy="230" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="280" y="254" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">日立の木</text>
+        <circle cx="348" cy="234" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="384" y="266" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">ダウンタウン</text>
+        <text x="384" y="282" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY1・大王像と出雲大社</text>
+        <circle cx="400" cy="232" r="9" fill="#9C6B3F" stroke="#fff" stroke-width="3"/>
+        <text x="400" y="206" font-size="16" font-weight="800" fill="#3B2A22" text-anchor="middle">ワイキキ</text>
+        <text x="400" y="222" font-size="11" font-weight="600" fill="#A08876" text-anchor="middle">滞在ホテル</text>
+        <circle cx="440" cy="228" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="456" y="244" font-size="16" font-weight="800" fill="#B6A794" text-anchor="start">ダイヤモンドヘッド</text>
+        <text x="456" y="260" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="start">DAY3・日の出ツアー</text>
+        <circle cx="505" cy="198" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="521" y="192" font-size="16" font-weight="800" fill="#B6A794" text-anchor="start">カハラ／イースト</text>
+        <text x="521" y="208" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="start">DAY2・海岸ドライブ</text>
+        <circle cx="676" cy="88" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="672" y="148" font-size="16" font-weight="800" fill="#B6A794" text-anchor="middle">ハワイ島</text>
+        <text x="672" y="164" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY4・ヒロとキラウエア</text>
+        </svg></div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-time">朝</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">ホテルで朝食</div><div class="tl-note">荷造りをして、最後のワイキキの朝。</div></div></div>
+        <div class="tl-item"><div class="tl-time">午前</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">ホテル送迎で空港へ</div><div class="tl-note">行きと同じ送迎で、ダニエル・K・イノウエ国際空港へ。</div></div></div>
+        <div class="tl-item"><div class="tl-time">機内</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">ホノルル → 成田</div><div class="tl-note">日付変更線を越えるので、到着は翌日に。</div></div></div>
+        <div class="tl-item"><div class="tl-time">11/24</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">帰宅</div><div class="tl-note">7日間、おつかれさま！</div></div></div>
+      </div>
+      <div class="stay"><span class="moon">🌙</span>オアフ島とハワイ島、ふたつの島の思い出を持って帰宅<small>由依ちゃんの結婚式・イルカ・キラウエア火山の7日間</small></div>
+    </div>
+  </section>
+
+  <footer>ハワイ旅行 2018（オアフ島・ハワイ島）／Notion「vlog作成（ハワイ旅行 2018）」の記録より</footer>
+
+</div>
+
+<a class="fab-itinerary" id="fab-itinerary" href="#itinerary" aria-label="旅の行程へ移動">行程へ <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v8M2.5 5.5 6 9l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+
+<script>
+(function(){
+  /* ---- tabs ---- */
+  var tabs=[].slice.call(document.querySelectorAll(".tab"));
+  tabs.forEach(function(tab){
+    tab.addEventListener("click",function(){
+      tabs.forEach(function(t){t.setAttribute("aria-selected","false");});
+      [].slice.call(document.querySelectorAll(".panel")).forEach(function(p){p.classList.remove("active");});
+      tab.setAttribute("aria-selected","true");
+      document.getElementById(tab.getAttribute("aria-controls")).classList.add("active");
+    });
+  });
+
+  /* ---- floating jump button ---- */
+  var fab=document.getElementById("fab-itinerary"), itin=document.getElementById("itinerary");
+  if(fab&&itin&&"IntersectionObserver" in window){
+    new IntersectionObserver(function(entries){
+      fab.classList.toggle("is-hidden", entries[0].isIntersecting);
+    },{threshold:0.05}).observe(itin);
+  }
+})();
+</script>
+</body>
+</html>
