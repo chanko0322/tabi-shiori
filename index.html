@@ -18,9 +18,11 @@
   .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
 
   /* ---------- HERO ---------- */
-  .hero{position:relative;min-height:240px;display:flex;align-items:flex-end;background:#3A2352;overflow:hidden;}
-  .hero-art{position:absolute;inset:0;width:100%;height:100%;display:block;}
-  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(58,30,44,.10) 0%,rgba(58,30,44,.35) 45%,rgba(45,20,36,.88) 100%);}
+  .hero{position:relative;min-height:300px;display:flex;align-items:flex-end;background:#1D3A5C;overflow:hidden;}
+  .hero-art,.hero-photo{position:absolute;inset:0;width:100%;height:100%;display:block;}
+  /* hero.jpg を同じフォルダに置くと、下のSVGイラストの代わりに写真が使われる */
+  .hero-photo{object-fit:cover;object-position:center 46%;}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(58,30,44,.06) 0%,rgba(58,30,44,.20) 46%,rgba(45,20,36,.74) 100%),linear-gradient(90deg,rgba(45,20,36,.55) 0%,rgba(45,20,36,.20) 44%,rgba(45,20,36,0) 72%);}
   .hero-inner{position:relative;z-index:1;width:100%;max-width:960px;margin:0 auto;padding:22px 24px 20px;color:#fff;}
   .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700;letter-spacing:.12em;}
   .hero h1{font-size:clamp(26px,4.5vw,40px);font-weight:800;letter-spacing:.04em;margin:10px 0 4px;text-shadow:0 2px 14px rgba(40,10,20,.45);}
@@ -39,10 +41,9 @@
   .t-card:hover,.t-card:focus-visible{transform:translateY(-3px);border-color:var(--coral);box-shadow:0 8px 24px rgba(201,75,87,.18);}
   .t-card:focus-visible{outline:3px solid #F5B942;outline-offset:2px;}
   .t-thumb{position:relative;}
-  .t-thumb svg{width:100%;aspect-ratio:16/9;display:block;}
+  .t-thumb img,.t-thumb svg{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;}
   .t-state{position:absolute;left:12px;top:12px;font-size:11.5px;font-weight:800;border-radius:999px;padding:4px 11px;letter-spacing:.06em;}
   .state-plan{background:var(--grad-sunset);color:#fff;box-shadow:0 4px 12px rgba(201,75,87,.3);}
-  .state-past{background:rgba(255,255,255,.92);color:#8A7468;}
   .t-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1;}
   .t-year{font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--coral);}
   .t-title{font-size:18px;font-weight:800;line-height:1.4;}
@@ -105,6 +106,7 @@
       <path d="M131,182 Q186,150 240,158 Q184,162 140,196 Z"/>
     </g>
   </svg>
+  <img class="hero-photo" src="hero.jpg?v=1" alt="" onerror="this.remove()">
   <div class="hero-inner">
     <span class="hero-badge">TRAVEL SHIORI</span>
     <h1>旅のしおり</h1>
@@ -124,34 +126,7 @@
       <!-- 2026 富山 -->
       <a class="t-card" href="2026-09-toyama/index.html">
         <div class="t-thumb">
-          <svg viewBox="0 0 400 225" role="img" aria-label="富山・白川郷・飛騨高山のイメージ">
-            <defs>
-              <linearGradient id="ty-sky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#3D2A54"/><stop offset="55%" stop-color="#B5566A"/>
-                <stop offset="100%" stop-color="#F3A961"/>
-              </linearGradient>
-            </defs>
-            <rect width="400" height="225" fill="url(#ty-sky)"/>
-            <circle cx="298" cy="118" r="24" fill="#FFEBC2" opacity=".95"/>
-            <g fill="#FFFFFF" opacity=".18">
-              <ellipse cx="110" cy="46" rx="66" ry="10"/><ellipse cx="270" cy="64" rx="54" ry="9"/>
-            </g>
-            <path d="M0,150 L58,88 L104,132 L150,74 L214,150 Z" fill="#4B3358"/>
-            <path d="M214,150 L262,96 L306,140 L352,102 L400,150 V150 Z" fill="#563A5E"/>
-            <path d="M0,150 H400 V225 H0 Z" fill="#33223A"/>
-            <path d="M0,158 Q100,146 200,158 Q300,170 400,156 V225 H0 Z" fill="#2A1B32"/>
-            <g fill="#F3E2C6">
-              <path d="M96,196 L136,150 L176,196 Z"/>
-              <path d="M186,200 L222,160 L258,200 Z"/>
-            </g>
-            <g fill="#3B2B2A" opacity=".55">
-              <rect x="112" y="188" width="48" height="10"/><rect x="200" y="192" width="44" height="9"/>
-            </g>
-            <g fill="#FFCB7D" opacity=".9">
-              <circle cx="128" cy="182" r="3"/><circle cx="146" cy="182" r="3"/>
-              <circle cx="214" cy="186" r="2.6"/><circle cx="230" cy="186" r="2.6"/>
-            </g>
-          </svg>
+          <img src="2026-09-toyama/hero.jpg" alt="" loading="lazy">
           <span class="t-state state-plan">計画中</span>
         </div>
         <div class="t-body">
@@ -170,38 +145,7 @@
       <!-- 2018 ハワイ -->
       <a class="t-card" href="2018-11-hawaii/index.html">
         <div class="t-thumb">
-          <svg viewBox="0 0 400 225" role="img" aria-label="ハワイ2018（オアフ島とハワイ島）のイメージ">
-            <defs>
-              <linearGradient id="h8-sky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#231F44"/><stop offset="55%" stop-color="#7E3A58"/>
-                <stop offset="100%" stop-color="#E07A48"/>
-              </linearGradient>
-              <radialGradient id="h8-glow" cx="50%" cy="50%" r="50%">
-                <stop offset="0" stop-color="#FF9A3C" stop-opacity=".85"/>
-                <stop offset="100%" stop-color="#FF6A1F" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
-            <rect width="400" height="225" fill="url(#h8-sky)"/>
-            <g fill="#FFFFFF" opacity=".75">
-              <circle cx="46" cy="28" r="1.6"/><circle cx="122" cy="18" r="1.3"/>
-              <circle cx="196" cy="34" r="1.6"/><circle cx="286" cy="22" r="1.3"/>
-              <circle cx="348" cy="44" r="1.5"/>
-            </g>
-            <ellipse cx="196" cy="146" rx="112" ry="38" fill="url(#h8-glow)"/>
-            <path d="M0,184 Q86,152 158,138 L234,138 Q320,146 400,170 V225 H0 Z" fill="#2B1C2E"/>
-            <ellipse cx="196" cy="140" rx="38" ry="8" fill="#FF8A2B" opacity=".95"/>
-            <ellipse cx="196" cy="139" rx="22" ry="4.5" fill="#FFD27A"/>
-            <g stroke="#FF7A22" stroke-width="3.4" fill="none" stroke-linecap="round" opacity=".9">
-              <path d="M170,145 Q142,172 130,206"/>
-              <path d="M198,147 Q194,178 202,214"/>
-              <path d="M224,145 Q254,170 272,200"/>
-            </g>
-            <g stroke="#FFC46B" stroke-width="2" fill="none" stroke-linecap="round" opacity=".8">
-              <path d="M182,146 Q162,174 154,204"/><path d="M212,146 Q234,172 248,198"/>
-            </g>
-            <path d="M0,198 Q110,180 232,194 Q322,204 400,192 V225 H0 Z" fill="#1E1420"/>
-          </svg>
-          <span class="t-state state-past">おもいで</span>
+          <img src="2018-11-hawaii/hero.jpg" alt="" loading="lazy">
         </div>
         <div class="t-body">
           <span class="t-year">2018 NOVEMBER</span>
@@ -218,38 +162,7 @@
       <!-- 2023 シンガポール -->
       <a class="t-card" href="2023-11-singapore/index.html">
         <div class="t-thumb">
-          <svg viewBox="0 0 400 225" role="img" aria-label="シンガポール2023（マリーナベイサンズ）のイメージ">
-            <defs>
-              <linearGradient id="sg-sky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#1C2340"/><stop offset="55%" stop-color="#7C4468"/>
-                <stop offset="100%" stop-color="#E8825A"/>
-              </linearGradient>
-              <radialGradient id="sg-glow" cx="50%" cy="50%" r="50%">
-                <stop offset="0" stop-color="#FFE2A8" stop-opacity=".85"/>
-                <stop offset="100%" stop-color="#FFD08A" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
-            <rect width="400" height="225" fill="url(#sg-sky)"/>
-            <ellipse cx="308" cy="118" rx="90" ry="46" fill="url(#sg-glow)"/>
-            <path d="M0,150 H400 V225 H0 Z" fill="#141834"/>
-            <g fill="#20263F">
-              <rect x="152" y="96" width="18" height="70"/>
-              <rect x="182" y="80" width="18" height="86"/>
-              <rect x="212" y="96" width="18" height="70"/>
-              <path d="M144,96 Q191,66 238,96 L238,110 Q191,84 144,110 Z"/>
-            </g>
-            <g fill="#3B4A78" opacity=".85">
-              <rect x="60" y="118" width="16" height="48"/>
-              <rect x="86" y="106" width="16" height="60"/>
-              <rect x="270" y="112" width="16" height="54"/>
-            </g>
-            <g fill="#FFCB7D" opacity=".9">
-              <circle cx="160" cy="112" r="2"/><circle cx="160" cy="130" r="2"/>
-              <circle cx="190" cy="98" r="2"/><circle cx="190" cy="120" r="2"/>
-              <circle cx="220" cy="112" r="2"/><circle cx="220" cy="130" r="2"/>
-            </g>
-          </svg>
-          <span class="t-state state-past">おもいで</span>
+          <img src="2023-11-singapore/hero.jpg" alt="" loading="lazy">
         </div>
         <div class="t-body">
           <span class="t-year">2023 NOVEMBER</span>
@@ -266,49 +179,13 @@
       <!-- 2017 ハワイ -->
       <a class="t-card" href="2017-11-hawaii/index.html">
         <div class="t-thumb">
-          <svg viewBox="0 0 400 225" role="img" aria-label="ハワイ2017（オアフ島）のイメージ">
-            <defs>
-              <linearGradient id="h7-sky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#3A2352"/><stop offset="45%" stop-color="#A64360"/>
-                <stop offset="78%" stop-color="#E8654A"/><stop offset="100%" stop-color="#F7B25C"/>
-              </linearGradient>
-              <linearGradient id="h7-sea" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#E4894F"/><stop offset="100%" stop-color="#40203C"/>
-              </linearGradient>
-              <radialGradient id="h7-glow" cx="50%" cy="50%" r="50%">
-                <stop offset="0" stop-color="#FFE2A8" stop-opacity=".9"/>
-                <stop offset="100%" stop-color="#FFD08A" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
-            <rect width="400" height="225" fill="url(#h7-sky)"/>
-            <ellipse cx="280" cy="140" rx="120" ry="60" fill="url(#h7-glow)"/>
-            <circle cx="280" cy="140" r="26" fill="#FFE3AE"/>
-            <g fill="#FFFFFF" opacity=".16">
-              <ellipse cx="96" cy="40" rx="62" ry="9"/><ellipse cx="250" cy="66" rx="70" ry="8"/>
-            </g>
-            <path d="M0,146 H400 V225 H0 Z" fill="url(#h7-sea)"/>
-            <g fill="#FFD9A0" opacity=".45">
-              <rect x="266" y="154" width="28" height="4" rx="2"/>
-              <rect x="256" y="168" width="48" height="4" rx="2"/>
-              <rect x="240" y="186" width="80" height="4" rx="2"/>
-              <rect x="222" y="206" width="116" height="4" rx="2"/>
-            </g>
-            <path d="M330,146 Q364,110 396,120 Q400,124 400,146 Z" fill="#33193A" opacity=".9"/>
-            <g fill="#2A1330">
-              <path d="M84,225 Q80,180 72,140 L84,138 Q94,182 98,225 Z"/>
-              <path d="M78,140 Q46,116 16,120 Q48,126 74,150 Z"/>
-              <path d="M78,138 Q58,100 24,84 Q64,108 80,146 Z"/>
-              <path d="M80,138 Q98,96 140,80 Q104,106 88,146 Z"/>
-              <path d="M80,140 Q116,118 152,124 Q116,128 88,152 Z"/>
-            </g>
-          </svg>
-          <span class="t-state state-past">おもいで</span>
+          <img src="2017-11-hawaii/hero.jpg" alt="" loading="lazy">
         </div>
         <div class="t-body">
           <span class="t-year">2017 NOVEMBER</span>
           <span class="t-title">ハワイ・オアフ島</span>
           <span class="t-date">2017.11.23（木）→ 11.28（火）</span>
-          <span class="t-desc">結婚式と還暦のお祝い、両家がそろった5泊6日。</span>
+          <span class="t-desc">弟夫婦の結婚式と還暦のお祝い、両家がそろった5泊6日。</span>
           <div class="t-meta">
             <span class="chip chip-coral">6日間</span>
             <span class="chip chip-gold">オアフ島</span>
