@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>シンガポール旅行 旅のしおり（2023）</title>
+<style>
+  :root{
+    --coral:#E8654A; --coral-soft:#FDEDE7; --gold:#E9A13B; --gold-soft:#FBF0DC;
+    --ink:#3B2B2A; --sub:#8A7468; --cream:#FFF8F0; --card:#FFFFFF; --line:#F0DFCE;
+    --grad-sunset:linear-gradient(135deg,#FF8E6E 0%,#E8654A 55%,#C94B57 100%);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *,*::before,*::after{animation:none!important;transition:none!important;} }
+  body{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Noto Sans CJK JP","Yu Gothic",sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;font-size:16px;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;min-height:320px;display:flex;align-items:flex-end;background:#1C2340;overflow:hidden;}
+  .hero-art,.hero-photo{position:absolute;inset:0;width:100%;height:100%;display:block;}
+  /* hero.jpg を同じフォルダに置くと、下のSVGイラストの代わりに写真が使われる */
+  .hero-photo{object-fit:cover;object-position:center 42%;}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,40,.10) 0%,rgba(24,20,40,.35) 45%,rgba(18,14,30,.88) 100%);}
+  .hero-inner{position:relative;z-index:1;width:100%;max-width:960px;margin:0 auto;padding:22px 24px 20px;color:#fff;}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700;letter-spacing:.12em;}
+  .hero h1{font-size:clamp(26px,4.5vw,40px);font-weight:800;letter-spacing:.04em;margin:10px 0 4px;text-shadow:0 2px 14px rgba(10,10,20,.5);}
+  .hero .sub{font-size:clamp(14px,2.2vw,17px);opacity:.94;font-weight:600;text-shadow:0 1px 8px rgba(10,10,20,.55);}
+  .hero .date-chip{display:inline-flex;align-items:center;gap:8px;margin-top:12px;background:rgba(233,161,59,.92);color:#3B2412;font-weight:800;border-radius:999px;padding:7px 16px;font-size:14px;letter-spacing:.04em;}
+
+  /* ---------- SECTION COMMON ---------- */
+  section{padding:44px 0 8px;}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;flex-wrap:wrap;}
+  .sec-en{font-size:13px;font-weight:800;letter-spacing:.22em;color:var(--coral);}
+  .sec-ja{font-size:clamp(20px,3vw,26px);font-weight:800;}
+  .sec-note{font-size:13px;color:var(--sub);margin-bottom:18px;}
+
+  /* ---------- GALLERY ---------- */
+  .gallery{display:flex;gap:14px;margin-top:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:2px 2px 12px;scrollbar-color:var(--line) transparent;}
+  .gallery::-webkit-scrollbar{height:8px;}
+  .gallery::-webkit-scrollbar-track{background:transparent;}
+  .gallery::-webkit-scrollbar-thumb{background:var(--line);border-radius:999px;}
+  .g-card{position:relative;flex:0 0 min(250px,72%);scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.04),0 4px 12px rgba(0,0,0,.04);}
+  .g-card img,.g-card svg{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
+  .g-body{position:absolute;left:0;right:0;bottom:0;padding:44px 12px 12px;background:linear-gradient(180deg,rgba(30,14,10,0) 0%,rgba(30,14,10,.55) 45%,rgba(30,14,10,.82) 100%);}
+  .g-tag{display:inline-block;font-size:11.5px;font-weight:800;border-radius:999px;padding:3px 10px;margin-bottom:6px;}
+  .tag-coral{background:var(--coral-soft);color:#C24B33;}
+  .tag-gold{background:var(--gold-soft);color:#9A6716;}
+  .g-cap{font-size:12.5px;color:rgba(255,255,255,.95);line-height:1.5;text-shadow:0 1px 3px rgba(0,0,0,.45);font-weight:600;}
+
+  /* ---------- ITINERARY ---------- */
+  .tabs{display:flex;gap:8px;margin:16px 0 0;flex-wrap:wrap;}
+  .tab{appearance:none;border:1.5px solid var(--line);background:#fff;color:var(--sub);font-weight:800;font-size:14px;border-radius:999px;padding:11px 18px;cursor:pointer;transition:all .15s ease;font-family:inherit;min-height:44px;}
+  .tab:hover{border-color:var(--coral);color:var(--coral);}
+  .tab:focus-visible{outline:3px solid #F5B942;outline-offset:2px;}
+  .tab[aria-selected="true"]{background:var(--grad-sunset);border-color:transparent;color:#fff;box-shadow:0 6px 16px rgba(232,101,74,.35);}
+  .panel{display:none;margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.04),0 4px 12px rgba(0,0,0,.04);}
+  .panel.active{display:block;}
+  .panel-head{display:flex;align-items:center;gap:12px;padding:20px 22px 0;flex-wrap:wrap;}
+  .panel-head h3{font-size:19px;font-weight:800;}
+  .panel-head .b-day{display:inline-block;background:var(--gold);color:#3B2412;font-size:12px;font-weight:800;border-radius:999px;padding:3px 12px;letter-spacing:.08em;}
+  .panel-map{padding:10px 22px 0;}
+  .panel-map svg{width:100%;height:auto;display:block;border-radius:12px;}
+  .timeline{padding:20px 22px 24px;}
+  .tl-item{display:flex;gap:14px;position:relative;padding:0 0 18px 0;}
+  .tl-item:last-child{padding-bottom:2px;}
+  .tl-time{flex:0 0 64px;font-size:13px;font-weight:800;color:var(--coral);font-variant-numeric:tabular-nums;padding-top:2px;text-align:right;}
+  .tl-line{flex:0 0 12px;position:relative;}
+  .tl-line::before{content:"";position:absolute;left:5px;top:8px;bottom:-8px;width:2px;background:var(--line);}
+  .tl-item:last-child .tl-line::before{display:none;}
+  .tl-line::after{content:"";position:absolute;left:1px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px var(--gold-soft);}
+  .tl-body{flex:1;padding-bottom:2px;}
+  .tl-title{font-size:15px;font-weight:700;}
+  .tl-note{font-size:12.5px;color:var(--sub);margin-top:2px;}
+  .pill{display:inline-block;font-size:11px;font-weight:800;border-radius:999px;padding:2px 9px;margin-left:6px;vertical-align:1px;}
+  .pill-ok{background:#E8F1EC;color:#2E7D54;}
+  .pill-todo{background:var(--coral-soft);color:#C24B33;}
+  .stay{margin:0 22px 22px;background:linear-gradient(135deg,#FFF3E4,#FDEDE7);border:1px solid #F5DDC2;border-radius:12px;padding:12px 16px;font-size:13.5px;font-weight:700;}
+  .stay .moon{margin-right:6px;}
+  .stay small{display:block;font-weight:600;color:var(--sub);margin-top:2px;font-size:12px;}
+
+  footer{text-align:center;padding:34px 0 30px;color:var(--sub);font-size:12.5px;font-weight:600;}
+
+  @media (max-width:720px){
+    .hero{min-height:290px;}
+    .tl-time{flex-basis:52px;}
+  }
+  .tl-link{display:inline-block;margin-top:5px;margin-right:10px;font-size:12px;font-weight:700;color:#C24B33;text-decoration:none;border-bottom:1px solid rgba(194,75,51,.35);}
+  .tl-link:hover,.tl-link:focus{border-bottom-color:#C24B33;}
+  .fab-itinerary{position:fixed;right:14px;bottom:14px;z-index:60;display:inline-flex;align-items:center;gap:7px;background:var(--grad-sunset);color:#fff;font-weight:800;font-size:13px;text-decoration:none;padding:11px 16px;border-radius:999px;box-shadow:0 6px 18px rgba(201,75,87,.35);transition:opacity .25s ease,transform .25s ease;}
+  .fab-itinerary svg{display:block;}
+  .fab-itinerary.is-hidden{opacity:0;pointer-events:none;transform:translateY(10px);}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <svg class="hero-art" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="h-sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#1C2340"/>
+        <stop offset="38%" stop-color="#5A3159"/>
+        <stop offset="68%" stop-color="#C1544F"/>
+        <stop offset="100%" stop-color="#F0A75C"/>
+      </linearGradient>
+      <linearGradient id="h-bay" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#2E3B63"/>
+        <stop offset="45%" stop-color="#243056"/>
+        <stop offset="100%" stop-color="#141834"/>
+      </linearGradient>
+      <radialGradient id="h-glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="#FFE2A8" stop-opacity=".9"/>
+        <stop offset="100%" stop-color="#FFD08A" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect x="0" y="0" width="1200" height="400" fill="url(#h-sky)"/>
+    <ellipse cx="940" cy="200" rx="260" ry="120" fill="url(#h-glow)"/>
+    <circle cx="940" cy="200" r="40" fill="#FFEBC0"/>
+    <g fill="#FFFFFF" opacity=".16">
+      <ellipse cx="230" cy="70" rx="140" ry="16"/>
+      <ellipse cx="470" cy="104" rx="180" ry="14"/>
+    </g>
+    <path d="M0,258 H1200 V400 H0 Z" fill="url(#h-bay)"/>
+    <!-- Marina Bay Sands towers + skypark -->
+    <g fill="#20263F">
+      <rect x="470" y="150" width="26" height="112"/>
+      <rect x="512" y="130" width="26" height="132"/>
+      <rect x="554" y="150" width="26" height="112"/>
+      <path d="M462,150 Q516,110 588,150 L588,168 Q516,132 462,168 Z"/>
+    </g>
+    <g fill="#3B4A78" opacity=".85">
+      <rect x="330" y="192" width="24" height="70"/>
+      <rect x="362" y="176" width="24" height="86"/>
+      <rect x="600" y="184" width="24" height="78"/>
+      <rect x="630" y="200" width="22" height="62"/>
+    </g>
+    <!-- supertree grove silhouettes -->
+    <g fill="#182036">
+      <path d="M270,262 V190 M270,208 Q244,196 224,198 M270,196 Q296,184 316,188 M270,222 Q250,212 234,214" stroke="#182036" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <ellipse cx="270" cy="182" rx="46" ry="16" fill="#22304E"/>
+      <path d="M700,262 V198 M700,214 Q678,204 662,206 M700,204 Q722,194 738,198" stroke="#182036" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <ellipse cx="700" cy="192" rx="34" ry="12" fill="#22304E"/>
+    </g>
+    <g fill="#FFCB7D" opacity=".85">
+      <circle cx="480" cy="176" r="2"/><circle cx="488" cy="196" r="2"/><circle cx="522" cy="160" r="2"/>
+      <circle cx="530" cy="188" r="2"/><circle cx="564" cy="176" r="2"/><circle cx="572" cy="200" r="2"/>
+      <circle cx="338" cy="212" r="1.8"/><circle cx="372" cy="200" r="1.8"/><circle cx="608" cy="206" r="1.8"/>
+    </g>
+    <path d="M0,270 Q200,254 400,264 Q700,278 1000,258 Q1120,250 1200,262 V400 H0 Z" fill="#101226" opacity=".92"/>
+  </svg>
+  <img class="hero-photo" src="hero.jpg" alt="" onerror="this.remove()">
+  <div class="hero-inner">
+    <span class="hero-badge">TRAVEL SHIORI・2023 NOVEMBER</span>
+    <h1>シンガポール</h1>
+    <p class="sub">マーライオンとチリクラブ、光と音のスペクタクル。常夏の街で過ごした 3日間の記録</p>
+    <div><span class="date-chip">2023.11.2（木）→ 11.4（土）</span></div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ============ GALLERY ============ -->
+  <section>
+    <div class="sec-head"><span class="sec-en">HIGHLIGHTS</span><span class="sec-ja">この旅のハイライト</span></div>
+    <div class="gallery">
+      <figure class="g-card">
+        <svg viewBox="0 0 400 300" role="img" aria-label="マーライオン公園のイメージイラスト">
+          <defs>
+            <linearGradient id="m-sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#6FB6DE"/><stop offset="70%" stop-color="#EAF3F0"/>
+              <stop offset="100%" stop-color="#FBE6CD"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#m-sky)"/>
+          <circle cx="320" cy="76" r="26" fill="#FFF6DE"/>
+          <path d="M0,190 H400 V300 H0 Z" fill="#3E8FAE"/>
+          <path d="M0,190 Q100,182 200,192 Q300,202 400,190 L400,214 Q300,226 200,216 Q100,206 0,214 Z" fill="#6FB3C8" opacity=".8"/>
+          <g fill="#2C4F6E" opacity=".9">
+            <rect x="250" y="120" width="16" height="72"/>
+            <rect x="276" y="100" width="16" height="92"/>
+            <rect x="302" y="130" width="16" height="62"/>
+          </g>
+          <g fill="#F3F6F2">
+            <path d="M112,150 Q150,110 170,150 Q176,190 158,214 Q152,224 138,224 Q120,224 112,208 Q100,180 112,150 Z"/>
+            <path d="M96,160 Q86,150 84,138 Q100,144 108,158 Z"/>
+            <path d="M118,222 Q108,240 92,246 Q104,226 116,214 Z"/>
+            <path d="M156,222 Q166,238 182,244 Q170,224 158,212 Z"/>
+          </g>
+          <g stroke="#FFFFFF" stroke-width="4" fill="none" opacity=".8" stroke-linecap="round">
+            <path d="M40,240 Q66,232 92,240"/><path d="M180,252 Q206,244 232,252"/>
+          </g>
+        </svg>
+        <figcaption class="g-body"><span class="g-tag tag-coral">DAY1・マーライオン公園</span><div class="g-cap">チャンギ到着後、まずはシンガポールの象徴に会いに。</div></figcaption>
+      </figure>
+      <figure class="g-card">
+        <svg viewBox="0 0 400 300" role="img" aria-label="ガーデンズバイザベイ スーパーツリーのイメージイラスト">
+          <defs>
+            <linearGradient id="g-sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#2C2C63"/><stop offset="45%" stop-color="#7A4368"/>
+              <stop offset="78%" stop-color="#D97A52"/><stop offset="100%" stop-color="#F6C58C"/>
+            </linearGradient>
+            <radialGradient id="g-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#FFE2A8" stop-opacity=".9"/><stop offset="100%" stop-color="#FFD08A" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#g-sky)"/>
+          <ellipse cx="130" cy="150" rx="90" ry="60" fill="url(#g-glow)"/>
+          <path d="M0,240 H400 V300 H0 Z" fill="#1E1830"/>
+          <g stroke="#241B38" stroke-width="7" fill="none" stroke-linecap="round">
+            <path d="M96,240 V150"/>
+            <path d="M200,240 V120"/>
+            <path d="M300,240 V160"/>
+          </g>
+          <g fill="#2E2244">
+            <ellipse cx="96" cy="132" rx="46" ry="18"/>
+            <ellipse cx="200" cy="100" rx="58" ry="22"/>
+            <ellipse cx="300" cy="142" rx="42" ry="16"/>
+          </g>
+          <g fill="#FFCB7D">
+            <circle cx="70" cy="150" r="3"/><circle cx="120" cy="150" r="3"/><circle cx="96" cy="170" r="3"/>
+            <circle cx="170" cy="118" r="3"/><circle cx="230" cy="118" r="3"/><circle cx="200" cy="138" r="3"/><circle cx="200" cy="80" r="3"/>
+            <circle cx="278" cy="158" r="3"/><circle cx="322" cy="158" r="3"/>
+          </g>
+        </svg>
+        <figcaption class="g-body"><span class="g-tag tag-gold">DAY1・ガーデンズバイザベイ</span><div class="g-cap">夕暮れどきのスーパーツリー・グローブへ。</div></figcaption>
+      </figure>
+      <figure class="g-card">
+        <svg viewBox="0 0 400 300" role="img" aria-label="ナイトサファリのイメージイラスト">
+          <defs>
+            <linearGradient id="n-sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#161233"/><stop offset="60%" stop-color="#2A2049"/>
+              <stop offset="100%" stop-color="#3E2C4E"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#n-sky)"/>
+          <circle cx="90" cy="60" r="26" fill="#F3EBD8" opacity=".95"/>
+          <g fill="#FFFFFF" opacity=".7">
+            <circle cx="200" cy="40" r="1.6"/><circle cx="260" cy="70" r="1.4"/>
+            <circle cx="320" cy="36" r="1.6"/><circle cx="150" cy="90" r="1.3"/>
+            <circle cx="350" cy="90" r="1.5"/>
+          </g>
+          <path d="M0,190 Q100,170 200,186 Q300,200 400,180 V300 H0 Z" fill="#231A38"/>
+          <path d="M0,214 Q120,196 236,212 Q330,224 400,208 V300 H0 Z" fill="#150F26"/>
+          <g fill="#0F0A1C">
+            <path d="M232,238 Q252,196 288,190 Q272,214 274,238 Q272,258 254,264 Q236,268 224,258 Q234,250 232,238 Z"/>
+            <path d="M286,190 Q300,182 306,168 Q304,188 294,196 Z"/>
+            <circle cx="252" cy="220" r="4" fill="#F5B942"/>
+          </g>
+          <g fill="#1A1330" opacity=".9">
+            <path d="M110,250 Q112,214 126,196 Q134,214 128,240 Q126,254 116,258 Q108,256 110,250 Z"/>
+            <path d="M128,196 Q140,192 150,182 Q144,198 132,204 Z"/>
+          </g>
+        </svg>
+        <figcaption class="g-body"><span class="g-tag tag-coral">DAY1・ナイトサファリ</span><div class="g-cap">19:15スタート。暗闇の中で動物たちに出会う2〜3時間。</div></figcaption>
+      </figure>
+      <figure class="g-card">
+        <svg viewBox="0 0 400 300" role="img" aria-label="マリーナベイサンズ スペクトラのイメージイラスト">
+          <defs>
+            <linearGradient id="s-sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#151A38"/><stop offset="60%" stop-color="#2A2E56"/>
+              <stop offset="100%" stop-color="#3C3768"/>
+            </linearGradient>
+            <radialGradient id="s-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#7FD8E6" stop-opacity=".8"/><stop offset="100%" stop-color="#7FD8E6" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#s-sky)"/>
+          <path d="M0,220 H400 V300 H0 Z" fill="#10142A"/>
+          <ellipse cx="200" cy="220" rx="150" ry="26" fill="url(#s-glow)"/>
+          <g fill="#0E1224">
+            <rect x="146" y="110" width="20" height="112"/>
+            <rect x="190" y="90" width="20" height="132"/>
+            <rect x="234" y="110" width="20" height="112"/>
+            <path d="M136,110 Q200,72 264,110 L264,128 Q200,94 136,128 Z"/>
+          </g>
+          <g fill="#8FE3EE" opacity=".9">
+            <rect x="152" y="128" width="6" height="10"/><rect x="152" y="150" width="6" height="10"/><rect x="152" y="172" width="6" height="10"/>
+            <rect x="196" y="112" width="6" height="10"/><rect x="196" y="140" width="6" height="10"/><rect x="196" y="168" width="6" height="10"/>
+            <rect x="240" y="128" width="6" height="10"/><rect x="240" y="150" width="6" height="10"/><rect x="240" y="172" width="6" height="10"/>
+          </g>
+          <g stroke="#BFF1F7" stroke-width="3" fill="none" stroke-linecap="round" opacity=".85">
+            <path d="M120,222 Q160,196 200,222"/>
+            <path d="M200,222 Q240,192 280,222"/>
+          </g>
+        </svg>
+        <figcaption class="g-body"><span class="g-tag tag-gold">DAY2・スペクトラ</span><div class="g-cap">マリーナベイサンズを舞台にした、光と水のショー。</div></figcaption>
+      </figure>
+      <figure class="g-card">
+        <svg viewBox="0 0 400 300" role="img" aria-label="チャンギ空港 JEWEL レインボルテックスのイメージイラスト">
+          <defs>
+            <linearGradient id="j-sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#BFE3EE"/><stop offset="100%" stop-color="#EFF7EE"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#j-sky)"/>
+          <ellipse cx="200" cy="150" rx="170" ry="130" fill="none" stroke="#B9CFCB" stroke-width="6" opacity=".6"/>
+          <path d="M110,60 Q200,10 290,60 Q330,150 290,240 Q200,290 110,240 Q70,150 110,60 Z" fill="none" stroke="#8FA79E" stroke-width="4" opacity=".5"/>
+          <path d="M186,60 L214,60 L226,240 Q200,260 174,240 Z" fill="#BFE7EF" opacity=".85"/>
+          <g stroke="#FFFFFF" stroke-width="3" opacity=".8">
+            <path d="M192,70 L188,230"/><path d="M200,64 L198,236"/><path d="M208,70 L212,230"/>
+          </g>
+          <ellipse cx="200" cy="248" rx="60" ry="14" fill="#8FC7D6" opacity=".6"/>
+          <g fill="#4F8C6B" opacity=".8">
+            <ellipse cx="120" cy="252" rx="30" ry="10"/><ellipse cx="280" cy="252" rx="30" ry="10"/>
+          </g>
+        </svg>
+        <figcaption class="g-body"><span class="g-tag tag-coral">DAY3・JEWEL レインボルテックス</span><div class="g-cap">帰国前、チャンギ空港の巨大な室内滝で最後の観光。</div></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ ITINERARY ============ -->
+  <section id="itinerary">
+    <div class="sec-head"><span class="sec-en">ITINERARY</span><span class="sec-ja">3日間の行程</span></div>
+    <div class="tabs" role="tablist" aria-label="日程切り替え">
+      <button class="tab" role="tab" id="tab-1" aria-selected="true" aria-controls="panel-1">DAY1</button>
+      <button class="tab" role="tab" id="tab-2" aria-selected="false" aria-controls="panel-2">DAY2</button>
+      <button class="tab" role="tab" id="tab-3" aria-selected="false" aria-controls="panel-3">DAY3</button>
+    </div>
+
+    <!-- DAY 1 -->
+    <div class="panel active" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
+      <div class="panel-head"><span class="b-day">DAY 1</span><h3>チャンギ到着。マーライオンとガーデンズバイザベイ、そしてナイトサファリ</h3></div>
+      <div class="panel-map"><svg viewBox="0 0 760 300" role="img" aria-label="DAY1 のルートマップ" style="width:100%;height:auto;display:block;">
+        <rect x="0" y="0" width="760" height="300" rx="14" fill="#D6E8ED"/>
+        <path d="M0,0 H760 V38 Q600,54 450,34 Q300,14 150,36 Q60,48 0,32 Z" fill="#EADFCB"/>
+        <text x="60" y="24" font-size="12" font-weight="700" fill="#B7A78C">マレーシア</text>
+        <path d="M78,140 Q120,88 210,68 Q330,42 430,56 Q560,60 650,108 Q702,138 690,170 Q652,200 560,212 Q460,226 350,220 Q220,214 138,190 Q88,174 78,140 Z" fill="#FBF0E3"/>
+        <text x="140" y="112" font-size="13" font-weight="700" fill="#CBB9A2" text-anchor="middle">シンガポール島</text>
+        <path d="M330,238 Q372,228 412,238 Q392,258 352,258 Q327,251 330,238 Z" fill="#FBF0E3" opacity=".8"/>
+        <text x="370" y="272" font-size="11" font-weight="700" fill="#CBB9A2" text-anchor="middle">セントーサ島</text>
+        <text x="646" y="256" font-size="13" font-weight="700" fill="#8FBBC8">シンガポール海峡</text>
+        <path d="M300,60 Q420,120 430,205" stroke="#E9A13B" stroke-width="4" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M430,205 Q410,200 390,202" stroke="#E9A13B" stroke-width="4" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M390,202 Q425,190 460,178" stroke="#E9A13B" stroke-width="4" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M460,178 Q560,150 660,132" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M390,202 Q470,196 560,190" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M390,202 Q370,170 380,138" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M390,202 Q365,180 350,150" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <circle cx="660" cy="132" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="660" y="118" font-size="15" font-weight="800" fill="#B6A794" text-anchor="middle">チャンギ空港</text>
+        <text x="660" y="150" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY1到着／DAY3出国</text>
+        <circle cx="300" cy="60" r="9" fill="#E9A13B" stroke="#fff" stroke-width="3"/>
+        <text x="300" y="46" font-size="15" font-weight="800" fill="#3B2A22" text-anchor="middle">マンダイ</text>
+        <text x="300" y="82" font-size="11" font-weight="600" fill="#A08876" text-anchor="middle">DAY1・ナイトサファリ</text>
+        <circle cx="430" cy="205" r="9" fill="#9C6B3F" stroke="#fff" stroke-width="3"/>
+        <text x="430" y="228" font-size="15" font-weight="800" fill="#3B2A22" text-anchor="middle">マリーナベイサンズ</text>
+        <text x="430" y="244" font-size="11" font-weight="600" fill="#A08876" text-anchor="middle">滞在ホテル</text>
+        <circle cx="390" cy="202" r="9" fill="#E9A13B" stroke="#fff" stroke-width="3"/>
+        <text x="390" y="184" font-size="15" font-weight="800" fill="#3B2A22" text-anchor="end">マーライオン公園</text>
+        <circle cx="460" cy="178" r="9" fill="#E9A13B" stroke="#fff" stroke-width="3"/>
+        <text x="476" y="172" font-size="15" font-weight="800" fill="#3B2A22" text-anchor="start">ガーデンズバイザベイ</text>
+        <text x="476" y="188" font-size="11" font-weight="600" fill="#A08876" text-anchor="start">DAY1</text>
+        <circle cx="560" cy="190" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="576" y="188" font-size="15" font-weight="800" fill="#B6A794" text-anchor="start">カトン</text>
+        <text x="576" y="204" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="start">DAY2</text>
+        <circle cx="380" cy="138" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="380" y="124" font-size="15" font-weight="800" fill="#B6A794" text-anchor="middle">アラブストリート</text>
+        <text x="380" y="150" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY2</text>
+        <circle cx="350" cy="150" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="330" y="146" font-size="15" font-weight="800" fill="#B6A794" text-anchor="end">チャイナタウン</text>
+        <text x="330" y="162" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="end">DAY2</text>
+        </svg></div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-time">午前</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">羽田空港 発 → チャンギ国際空港 着</div><div class="tl-note">シンガポールへ出発。到着後、そのまま市内へ。</div></div></div>
+        <div class="tl-item"><div class="tl-time">昼</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">Ya Kun Kaya Toast 本店<span class="pill pill-ok">カヤトースト</span></div><div class="tl-note">シンガポール名物カヤトーストの老舗店で腹ごしらえ。</div><a class="tl-link" href="https://youtu.be/xpD7d4AV9bc" target="_blank" rel="noopener">カヤトースト vlog ↗</a></div></div>
+        <div class="tl-item"><div class="tl-time">午後</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">マーライオン公園</div><div class="tl-note">シンガポールの象徴、マーライオンに会いに。</div></div></div>
+        <div class="tl-item"><div class="tl-time">午後</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">マリーナベイサンズ 到着・手荷物預かり</div><div class="tl-note">チェックインにはまだ早いので、荷物だけ預けて観光へ。</div></div></div>
+        <div class="tl-item"><div class="tl-time">午後</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">スカイパーク展望デッキ</div><div class="tl-note">屋上から街とマリーナを一望。</div></div></div>
+        <div class="tl-item"><div class="tl-time">夕方</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">ガーデンズバイザベイ</div><div class="tl-note">夕暮れどきのスーパーツリー・グローブを散策。</div></div></div>
+        <div class="tl-item"><div class="tl-time">18:00</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">夕食：ウルウル・サファリ レストラン／BONGO BURGERS／アーメン・ビストロ</div><div class="tl-note">ナイトサファリ園内で夕食の候補。</div></div></div>
+        <div class="tl-item"><div class="tl-time">19:15</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">ナイトサファリ<span class="pill pill-ok">2〜3時間</span></div><div class="tl-note">世界初の夜間動物園。暗闇の中トラムやウォーキングトレイルで動物たちに会う。</div></div></div>
+      </div>
+      <div class="stay"><span class="moon">🌙</span>泊：マリーナベイサンズ<small>翌朝は屋上のインフィニティプールから一日をスタート</small></div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2">
+      <div class="panel-head"><span class="b-day">DAY 2</span><h3>マクスウェルのチキンライスから、チャイナタウン・アラブストリート巡り。夜はスペクトラ</h3></div>
+      <div class="panel-map"><svg viewBox="0 0 760 300" role="img" aria-label="DAY2 のルートマップ" style="width:100%;height:auto;display:block;">
+        <rect x="0" y="0" width="760" height="300" rx="14" fill="#D6E8ED"/>
+        <path d="M0,0 H760 V38 Q600,54 450,34 Q300,14 150,36 Q60,48 0,32 Z" fill="#EADFCB"/>
+        <text x="60" y="24" font-size="12" font-weight="700" fill="#B7A78C">マレーシア</text>
+        <path d="M78,140 Q120,88 210,68 Q330,42 430,56 Q560,60 650,108 Q702,138 690,170 Q652,200 560,212 Q460,226 350,220 Q220,214 138,190 Q88,174 78,140 Z" fill="#FBF0E3"/>
+        <text x="140" y="112" font-size="13" font-weight="700" fill="#CBB9A2" text-anchor="middle">シンガポール島</text>
+        <path d="M330,238 Q372,228 412,238 Q392,258 352,258 Q327,251 330,238 Z" fill="#FBF0E3" opacity=".8"/>
+        <text x="370" y="272" font-size="11" font-weight="700" fill="#CBB9A2" text-anchor="middle">セントーサ島</text>
+        <text x="646" y="256" font-size="13" font-weight="700" fill="#8FBBC8">シンガポール海峡</text>
+        <path d="M350,150 Q368,176 390,202" stroke="#E9A13B" stroke-width="4" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M380,138 Q365,170 350,150" stroke="#E9A13B" stroke-width="4" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M390,202 Q470,196 560,190" stroke="#E9A13B" stroke-width="4" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M390,202 Q410,200 430,205" stroke="#E9A13B" stroke-width="4" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M300,60 Q420,120 430,205" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M430,205 Q550,168 660,132" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <circle cx="660" cy="132" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="660" y="118" font-size="15" font-weight="800" fill="#B6A794" text-anchor="middle">チャンギ空港</text>
+        <text x="660" y="150" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY1到着／DAY3出国</text>
+        <circle cx="300" cy="60" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="300" y="46" font-size="15" font-weight="800" fill="#B6A794" text-anchor="middle">マンダイ</text>
+        <text x="300" y="82" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY1・ナイトサファリ</text>
+        <circle cx="430" cy="205" r="9" fill="#9C6B3F" stroke="#fff" stroke-width="3"/>
+        <text x="430" y="228" font-size="15" font-weight="800" fill="#3B2A22" text-anchor="middle">マリーナベイサンズ</text>
+        <text x="430" y="244" font-size="11" font-weight="600" fill="#A08876" text-anchor="middle">滞在ホテル／夜:スペクトラ</text>
+        <circle cx="350" cy="150" r="9" fill="#E9A13B" stroke="#fff" stroke-width="3"/>
+        <text x="330" y="146" font-size="15" font-weight="800" fill="#3B2A22" text-anchor="end">チャイナタウン</text>
+        <text x="330" y="162" font-size="11" font-weight="600" fill="#A08876" text-anchor="end">マクスウェル・富の泉</text>
+        <circle cx="380" cy="138" r="9" fill="#E9A13B" stroke="#fff" stroke-width="3"/>
+        <text x="380" y="124" font-size="15" font-weight="800" fill="#3B2A22" text-anchor="middle">アラブストリート</text>
+        <text x="380" y="150" font-size="11" font-weight="600" fill="#A08876" text-anchor="middle">リトルインディア・ハジーレーン</text>
+        <circle cx="390" cy="202" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="390" y="184" font-size="15" font-weight="800" fill="#B6A794" text-anchor="end">マーライオン公園</text>
+        <circle cx="560" cy="190" r="9" fill="#E9A13B" stroke="#fff" stroke-width="3"/>
+        <text x="576" y="188" font-size="15" font-weight="800" fill="#3B2A22" text-anchor="start">カトン</text>
+        <text x="576" y="204" font-size="11" font-weight="600" fill="#A08876" text-anchor="start">Chin Mee Chin・ジャンボシーフード</text>
+        </svg></div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-time">朝</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">マクスウェル・フードセンター</div><div class="tl-note">スイカジュースと、天天海南鶏飯のチキンライス。</div></div></div>
+        <div class="tl-item"><div class="tl-time">午前</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">チャイナタウン（牛車水）</div><div class="tl-note">中華街をのんびり散策。</div></div></div>
+        <div class="tl-item"><div class="tl-time">午後</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">富の泉（サンテック・シティモール）</div><div class="tl-note">世界最大級の噴水。</div></div></div>
+        <div class="tl-item"><div class="tl-time">午後</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">アラブストリート／リトルインディア／ハジーレーン</div><div class="tl-note">エスニックな街並みを歩いてまわる。</div></div></div>
+        <div class="tl-item"><div class="tl-time">午後</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">クラーク・キー／エメラルドヒル</div><div class="tl-note">川沿いの街並みとコロニアル建築のショップハウス。</div></div></div>
+        <div class="tl-item"><div class="tl-time">夕方</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">Chin Mee Chin<span class="pill pill-ok">ラクサ</span></div><div class="tl-note">カトンの老舗でラクサ。</div><a class="tl-link" href="https://youtu.be/WYr_TYEyQH8" target="_blank" rel="noopener">ラクサ vlog ↗</a></div></div>
+        <div class="tl-item"><div class="tl-time">夕方</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">カトン散策</div><div class="tl-note">プラナカン様式のカラフルな街並み。</div></div></div>
+        <div class="tl-item"><div class="tl-time">夜</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">夕食：ジャンボシーフード（チリクラブ）／レッドハウス</div><div class="tl-note">シンガポール名物、チリクラブをがっつり。</div></div></div>
+        <div class="tl-item"><div class="tl-time">20:00</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">マリーナベイサンズ スペクトラ<span class="pill pill-ok">15分間</span></div><div class="tl-note">金・土は20時／21時／22時の3回開催。</div></div></div>
+        <div class="tl-item"><div class="tl-time">夜</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">シンガポール リバークルーズ</div><div class="tl-note">スペクトラを川の上から眺める。</div></div></div>
+        <div class="tl-item"><div class="tl-time">19:45／20:45</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">ガーデンラプソディ</div><div class="tl-note">スーパーツリーの光と音のショー、1日2回。</div></div></div>
+      </div>
+      <div class="stay"><span class="moon">🌙</span>泊：マリーナベイサンズ<small>光と水のショーを見ながら、シンガポールの夜を満喫</small></div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3">
+      <div class="panel-head"><span class="b-day">DAY 3</span><h3>朝食のカヤトースト、シンガポールフライヤーとJEWELを経て帰国</h3></div>
+      <div class="panel-map"><svg viewBox="0 0 760 300" role="img" aria-label="DAY3 のルートマップ" style="width:100%;height:auto;display:block;">
+        <rect x="0" y="0" width="760" height="300" rx="14" fill="#D6E8ED"/>
+        <path d="M0,0 H760 V38 Q600,54 450,34 Q300,14 150,36 Q60,48 0,32 Z" fill="#EADFCB"/>
+        <text x="60" y="24" font-size="12" font-weight="700" fill="#B7A78C">マレーシア</text>
+        <path d="M78,140 Q120,88 210,68 Q330,42 430,56 Q560,60 650,108 Q702,138 690,170 Q652,200 560,212 Q460,226 350,220 Q220,214 138,190 Q88,174 78,140 Z" fill="#FBF0E3"/>
+        <text x="140" y="112" font-size="13" font-weight="700" fill="#CBB9A2" text-anchor="middle">シンガポール島</text>
+        <path d="M330,238 Q372,228 412,238 Q392,258 352,258 Q327,251 330,238 Z" fill="#FBF0E3" opacity=".8"/>
+        <text x="370" y="272" font-size="11" font-weight="700" fill="#CBB9A2" text-anchor="middle">セントーサ島</text>
+        <text x="646" y="256" font-size="13" font-weight="700" fill="#8FBBC8">シンガポール海峡</text>
+        <path d="M390,202 Q425,190 460,178" stroke="#E9A13B" stroke-width="4" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M460,178 Q560,150 660,132" stroke="#E9A13B" stroke-width="4" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M430,205 Q410,200 390,202" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M300,60 Q420,120 430,205" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M350,150 Q368,176 390,202" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M380,138 Q365,170 350,150" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <path d="M390,202 Q470,196 560,190" stroke="#C6DCE3" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+        <circle cx="660" cy="132" r="9" fill="#9C6B3F" stroke="#fff" stroke-width="3"/>
+        <text x="660" y="118" font-size="15" font-weight="800" fill="#3B2A22" text-anchor="middle">チャンギ空港</text>
+        <text x="660" y="150" font-size="11" font-weight="600" fill="#A08876" text-anchor="middle">JEWEL・帰国</text>
+        <circle cx="460" cy="178" r="9" fill="#E9A13B" stroke="#fff" stroke-width="3"/>
+        <text x="476" y="172" font-size="15" font-weight="800" fill="#3B2A22" text-anchor="start">シンガポールフライヤー</text>
+        <text x="476" y="188" font-size="11" font-weight="600" fill="#A08876" text-anchor="start">セントアンドリュース大聖堂</text>
+        <circle cx="300" cy="60" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="300" y="46" font-size="15" font-weight="800" fill="#B6A794" text-anchor="middle">マンダイ</text>
+        <text x="300" y="82" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">DAY1・ナイトサファリ</text>
+        <circle cx="430" cy="205" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="430" y="228" font-size="15" font-weight="800" fill="#B6A794" text-anchor="middle">マリーナベイサンズ</text>
+        <text x="430" y="244" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="middle">滞在ホテル</text>
+        <circle cx="390" cy="202" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="390" y="184" font-size="15" font-weight="800" fill="#B6A794" text-anchor="end">マーライオン公園</text>
+        <circle cx="350" cy="150" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="330" y="146" font-size="15" font-weight="800" fill="#B6A794" text-anchor="end">チャイナタウン</text>
+        <text x="330" y="162" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="end">DAY2</text>
+        <circle cx="560" cy="190" r="7" fill="#D5C7B7" stroke="#fff" stroke-width="3"/>
+        <text x="576" y="188" font-size="15" font-weight="800" fill="#B6A794" text-anchor="start">カトン</text>
+        <text x="576" y="204" font-size="11" font-weight="600" fill="#C6B8A8" text-anchor="start">DAY2</text>
+        </svg></div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-time">朝</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">Tong Ah Eating House<span class="pill pill-ok">カヤトースト</span></div><div class="tl-note">最終日の朝食も、やっぱりカヤトースト。</div></div></div>
+        <div class="tl-item"><div class="tl-time">午前</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">シンガポールフライヤー</div><div class="tl-note">大観覧車から街を一望。</div></div></div>
+        <div class="tl-item"><div class="tl-time">午前</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">セントアンドリュース大聖堂</div><div class="tl-note">白亜のコロニアル建築をお参りがてら見学。</div></div></div>
+        <div class="tl-item"><div class="tl-time">午後</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">JEWEL<span class="pill pill-ok">買い物</span></div><div class="tl-note">室内滝レインボルテックスを眺めながら、最後のお買い物。</div></div></div>
+        <div class="tl-item"><div class="tl-time">空港</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">チャンギ国際空港 → 羽田空港</div><div class="tl-note">3日間、おつかれさま！</div></div></div>
+      </div>
+      <div class="stay"><span class="moon">🌙</span>マーライオンとチリクラブ、光のショーの記憶を持って帰国<small>マリーナベイサンズを拠点にした2泊3日</small></div>
+    </div>
+  </section>
+
+  <footer>シンガポール旅行 2023／Notion「vlog作成（2023年 シンガポール旅行）」「2023/11 シンガポール旅行」の記録より</footer>
+
+</div>
+
+<a class="fab-itinerary" id="fab-itinerary" href="#itinerary" aria-label="旅の行程へ移動">行程へ <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v8M2.5 5.5 6 9l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+
+<script>
+(function(){
+  /* ---- tabs ---- */
+  var tabs=[].slice.call(document.querySelectorAll(".tab"));
+  tabs.forEach(function(tab){
+    tab.addEventListener("click",function(){
+      tabs.forEach(function(t){t.setAttribute("aria-selected","false");});
+      [].slice.call(document.querySelectorAll(".panel")).forEach(function(p){p.classList.remove("active");});
+      tab.setAttribute("aria-selected","true");
+      document.getElementById(tab.getAttribute("aria-controls")).classList.add("active");
+    });
+  });
+
+  /* ---- floating jump button ---- */
+  var fab=document.getElementById("fab-itinerary"), itin=document.getElementById("itinerary");
+  if(fab&&itin&&"IntersectionObserver" in window){
+    new IntersectionObserver(function(entries){
+      fab.classList.toggle("is-hidden", entries[0].isIntersecting);
+    },{threshold:0.05}).observe(itin);
+  }
+})();
+</script>
+</body>
+</html>
