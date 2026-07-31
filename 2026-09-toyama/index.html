@@ -115,6 +115,23 @@
   .map-ja{font-size:17px;font-weight:800;}
   .tl-link{display:inline-block;margin-top:5px;margin-right:10px;font-size:12px;font-weight:700;color:#C24B33;text-decoration:none;border-bottom:1px solid rgba(194,75,51,.35);}
   .tl-link:hover,.tl-link:focus{border-bottom-color:#C24B33;}
+  /* ---------- ツアー内ネスト行程 ---------- */
+  .tour-detail{margin-top:9px;border:1px solid var(--line);border-radius:12px;background:var(--cream);overflow:hidden;}
+  .tour-detail>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;color:var(--coral);padding:9px 13px;display:flex;align-items:center;gap:7px;user-select:none;}
+  .tour-detail>summary::-webkit-details-marker{display:none;}
+  .tour-detail>summary::before{content:"▸";font-size:11px;transition:transform .2s ease;}
+  .tour-detail[open]>summary::before{transform:rotate(90deg);}
+  .tour-detail>summary::after{content:"バスツアー内の行程";font-size:10px;font-weight:800;color:var(--sub);background:var(--gold-soft);border-radius:999px;padding:2px 9px;margin-left:auto;letter-spacing:.02em;}
+  .tour-steps{list-style:none;margin:0;padding:2px 15px 4px;border-top:1px solid var(--line);}
+  .tour-steps li{display:flex;gap:11px;padding:10px 0 0;position:relative;}
+  .tour-steps li::before{content:"";position:absolute;left:5px;top:16px;bottom:-4px;width:2px;background:var(--line);}
+  .tour-steps li:last-child::before{display:none;}
+  .ts-dot{flex:0 0 12px;position:relative;}
+  .ts-dot::after{content:"";position:absolute;left:1px;top:4px;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px var(--gold-soft);}
+  .ts-body{flex:1;font-size:12px;color:var(--sub);line-height:1.55;padding-bottom:2px;}
+  .ts-body b{color:var(--ink);font-weight:700;}
+  .ts-tag{display:inline-block;font-size:10px;font-weight:800;color:var(--coral);background:var(--coral-soft);border-radius:999px;padding:1px 8px;margin-right:6px;vertical-align:1px;}
+  .tour-meta{font-size:11.5px;font-weight:700;color:var(--sub);border-top:1px dashed var(--line);padding:9px 14px;background:#fff;}
   .fab-itinerary{position:fixed;right:14px;bottom:14px;z-index:60;display:inline-flex;align-items:center;gap:7px;background:var(--grad-sunset);color:#fff;font-weight:800;font-size:13px;text-decoration:none;padding:11px 16px;border-radius:999px;box-shadow:0 6px 18px rgba(201,75,87,.35);transition:opacity .25s ease,transform .25s ease;}
   .fab-itinerary svg{display:block;}
   .fab-itinerary.is-hidden{opacity:0;pointer-events:none;transform:translateY(10px);}
@@ -203,8 +220,19 @@
         <div class="tl-item"><div class="tl-time">昼ごろ</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">富山駅 到着 → 富山湾鮨ランチ</div><div class="tl-note">白えび・のどぐろ・ほたるいか。駅ナカ or 市内の鮨店で。</div></div></div>
         <div class="tl-item"><div class="tl-time">午後</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">池田屋安兵衛商店など富山市内観光</div><div class="tl-note">和漢薬の老舗で丸薬づくり見学も。暑い時間帯は屋内中心で。</div></div></div>
         <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">富山エクセルホテル東急 チェックイン<span class="pill pill-ok">予約済</span></div><div class="tl-note">スーペリアツイン・朝食付き。</div><a class="tl-link" href="https://www.tokyuhotels.co.jp/toyama-e/index.html" target="_blank" rel="noopener">富山エクセルホテル東急 公式 ↗</a></div></div>
-        <div class="tl-item"><div class="tl-time">16:40</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">ホテル前からおわら日帰りバスツアー出発<span class="pill pill-ok">予約済</span></div><div class="tl-note">屋内競演会ステージ鑑賞付き。</div><a class="tl-link" href="https://toyama.visit-town.com/visittour/owara-bustourjtb" target="_blank" rel="noopener">おわらバスツアー詳細 ↗</a></div></div>
-        <div class="tl-item"><div class="tl-time">夜</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">八尾の町流しを鑑賞 → 23:50ごろ帰着</div><div class="tl-note">雨天時は演舞が中止・中断されることあり。歩きやすい靴で。</div></div></div>
+        <div class="tl-item"><div class="tl-time">16:40</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">おわら日帰りバスツアー（屋内ステージ鑑賞付）<span class="pill pill-ok">予約済</span></div><div class="tl-note">ホテル前発 → 八尾でおわら鑑賞 → 23:50ごろ帰着。雨天でも屋内ステージは鑑賞可。歩きやすい靴で。</div>
+          <details class="tour-detail">
+            <summary>ツアー行程・内容</summary>
+            <ul class="tour-steps">
+              <li><div class="ts-dot"></div><div class="ts-body"><span class="ts-tag">集合</span><b>富山エクセルホテル東急 1階正面玄関前</b>に集合。添乗員が同行します。</div></li>
+              <li><div class="ts-dot"></div><div class="ts-body"><span class="ts-tag">移動</span>バスで越中八尾へ。</div></li>
+              <li><div class="ts-dot"></div><div class="ts-body"><span class="ts-tag">鑑賞</span><b>八尾曳山会館で屋内競演会ステージを鑑賞</b>（約60分）。雨天でも中止なく鑑賞できます。</div></li>
+              <li><div class="ts-dot"></div><div class="ts-body"><span class="ts-tag">自由</span>町流しなど<b>おわら行事を自由見学</b>（約1時間半）。</div></li>
+              <li><div class="ts-dot"></div><div class="ts-body"><span class="ts-tag">帰着</span>バスでホテルへ戻り解散（23:50ごろ）。</div></li>
+            </ul>
+            <div class="tour-meta">旅行代金：おとな・こども同額 12,800円／添乗員同行</div>
+          </details>
+          <a class="tl-link" href="https://toyama.visit-town.com/visittour/owara-bustourjtb" target="_blank" rel="noopener">おわらバスツアー詳細 ↗</a></div></div>
       </div>
       <div class="stay"><span class="moon"></span>泊：富山エクセルホテル東急<small>富山市新富町1-2-3・076-441-0109</small></div>
     </div>
