@@ -85,6 +85,9 @@
   .pill{display:inline-block;font-size:11px;font-weight:800;border-radius:999px;padding:2px 9px;margin-left:6px;vertical-align:1px;}
   .pill-ok{background:#E8F1EC;color:#2E7D54;}
   .pill-todo{background:var(--coral-soft);color:#C24B33;}
+  .pill-sight{background:#E4EFF3;color:#2C6E8A;}
+  .pill-food{background:#FBEEDA;color:#A9741B;}
+  .pill-stay{background:#EEE7F4;color:#6C4E8F;}
   .stay{margin:0 22px 22px;background:linear-gradient(135deg,#FFF3E4,#FDEDE7);border:1px solid #F5DDC2;border-radius:12px;padding:12px 16px;font-size:13.5px;font-weight:700;}
   .stay .moon{margin-right:6px;}
   .stay small{display:block;font-weight:600;color:var(--sub);margin-top:2px;font-size:12px;}
@@ -194,7 +197,7 @@
 
     <!-- DAY 1 -->
     <div class="panel active" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
-      <div class="panel-head"><span class="b-day">DAY 1</span><h3>富山へ。夜は八尾「おわら風の盆」</h3></div>
+      <div class="panel-head"><h3>富山へ。夜は八尾「おわら風の盆」</h3></div>
       <div class="panel-map"><svg viewBox="0 0 760 280" role="img" aria-label="DAY1のルートマップ" style="width:100%;height:auto;display:block;">
         <rect x="0" y="0" width="760" height="280" rx="14" fill="#FBF0E3"/>
         <path d="M0,40 Q180,10 400,30 Q590,45 760,19 L760,0 L0,0 Z" fill="#D6E8ED"/>
@@ -221,10 +224,10 @@
         <text x="591" y="264" font-size="11" font-weight="600" fill="#CDBFAF">DAY3・新幹線で帰路</text>
       </svg></div>
       <div class="timeline">
-        <div class="tl-item"><div class="tl-time">昼ごろ</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">富山駅 到着 → 富山湾鮨ランチ</div><div class="tl-note">白えび・のどぐろ・ほたるいか。駅ナカ or 市内の鮨店で。</div></div></div>
-        <div class="tl-item"><div class="tl-time">午後</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">池田屋安兵衛商店など富山市内観光</div><div class="tl-note">和漢薬の老舗で丸薬づくり見学も。暑い時間帯は屋内中心で。</div></div></div>
-        <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">富山エクセルホテル東急 チェックイン<span class="pill pill-ok">予約済</span></div><div class="tl-note">スーペリアツイン・朝食付き。</div></div></div>
-        <div class="tl-item"><div class="tl-time">16:40</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">おわら日帰りバスツアー（屋内ステージ鑑賞付）<span class="pill pill-ok">予約済</span></div><div class="tl-note">ホテル前発 → 八尾でおわら鑑賞 → 23:50ごろ帰着。雨天でも屋内ステージは鑑賞可。歩きやすい靴で。</div>
+        <div class="tl-item"><div class="tl-time">昼ごろ</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">富山駅 到着 → 富山湾鮨ランチ<span class="pill pill-food">食事</span></div><div class="tl-note">白えび・のどぐろ・ほたるいか。駅ナカ or 市内の鮨店で。</div></div></div>
+        <div class="tl-item"><div class="tl-time">午後</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">池田屋安兵衛商店など富山市内観光<span class="pill pill-sight">観光</span></div><div class="tl-note">和漢薬の老舗で丸薬づくり見学も。暑い時間帯は屋内中心で。</div></div></div>
+        <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">富山エクセルホテル東急 チェックイン<span class="pill pill-stay">宿泊</span><span class="pill pill-ok">予約済</span></div><div class="tl-note">スーペリアツイン・朝食付き。</div></div></div>
+        <div class="tl-item"><div class="tl-time">16:40</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">おわら日帰りバスツアー（屋内ステージ鑑賞付）<span class="pill pill-sight">観光</span><span class="pill pill-ok">予約済</span></div><div class="tl-note">ホテル前発 → 八尾でおわら鑑賞 → 23:50ごろ帰着。雨天でも屋内ステージは鑑賞可。歩きやすい靴で。</div>
           <details class="tour-detail">
             <summary>ツアー行程・内容</summary>
             <ul class="tour-steps">
@@ -242,7 +245,7 @@
 
     <!-- DAY 2 -->
     <div class="panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2">
-      <div class="panel-head"><span class="b-day">DAY 2</span><h3>白川郷へ。合掌造りの宿に泊まる</h3></div>
+      <div class="panel-head"><h3>白川郷へ。合掌造りの宿に泊まる</h3></div>
       <div class="panel-map"><svg viewBox="0 0 760 280" role="img" aria-label="DAY2のルートマップ" style="width:100%;height:auto;display:block;">
         <rect x="0" y="0" width="760" height="280" rx="14" fill="#FBF0E3"/>
         <path d="M0,40 Q180,10 400,30 Q590,45 760,19 L760,0 L0,0 Z" fill="#D6E8ED"/>
@@ -269,21 +272,21 @@
         <text x="591" y="264" font-size="11" font-weight="600" fill="#CDBFAF">DAY3・新幹線で帰路</text>
       </svg></div>
       <div class="timeline">
-        <div class="tl-item"><div class="tl-time">7:30</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">ホテルで朝食 → チェックアウト</div></div></div>
+        <div class="tl-item"><div class="tl-time">7:30</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">ホテルで朝食 → チェックアウト<span class="pill pill-food">食事</span></div></div></div>
         <div class="tl-item"><div class="tl-time">9:00</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">高速バスで白川郷へ（8:45集合）<span class="pill pill-todo">要予約</span></div><div class="tl-note">富山駅前発・約1時間20分・片道2,400円。10:20着後、宿へ荷物を預ける。</div></div></div>
-        <div class="tl-item"><div class="tl-time">10:40</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">城山展望台で絶景タイム（シャトルバス往復）</div><div class="tl-note">集落を一望する王道ビュー。写真タイムはたっぷり30分。</div></div></div>
-        <div class="tl-item"><div class="tl-time">11:30</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">和田家（国重文）を見学 → 白水園で郷土料理ランチ</div></div></div>
-        <div class="tl-item"><div class="tl-time">13:30</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">明善寺郷土館 → カフェでかき氷休憩</div><div class="tl-note">暑さのピークは屋内と日陰でゆったり。</div></div></div>
-        <div class="tl-item"><div class="tl-time">15:00</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">民宿 幸ヱ門にチェックイン → お昼寝タイム<span class="pill pill-ok">予約済</span></div><div class="tl-note">全室エアコン完備。</div></div></div>
-        <div class="tl-item"><div class="tl-time">16:30</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">夕方の集落散歩（であい橋・田んぼの畦道）</div><div class="tl-note">日帰り客が帰ったあとが、いちばんいい時間。</div></div></div>
-        <div class="tl-item"><div class="tl-time">18:00</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">囲炉裏端で飛騨牛ディナー → 夜は満天の星</div><div class="tl-note">夜の散歩はスマホライトで足元を確保。</div></div></div>
+        <div class="tl-item"><div class="tl-time">10:40</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">城山展望台で絶景タイム（シャトルバス往復）<span class="pill pill-sight">観光</span></div><div class="tl-note">集落を一望する王道ビュー。写真タイムはたっぷり30分。</div></div></div>
+        <div class="tl-item"><div class="tl-time">11:30</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">和田家（国重文）を見学 → 白水園で郷土料理ランチ<span class="pill pill-sight">観光</span><span class="pill pill-food">食事</span></div></div></div>
+        <div class="tl-item"><div class="tl-time">13:30</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">明善寺郷土館 → カフェでかき氷休憩<span class="pill pill-sight">観光</span><span class="pill pill-food">食事</span></div><div class="tl-note">暑さのピークは屋内と日陰でゆったり。</div></div></div>
+        <div class="tl-item"><div class="tl-time">15:00</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">民宿 幸ヱ門にチェックイン → お昼寝タイム<span class="pill pill-stay">宿泊</span><span class="pill pill-ok">予約済</span></div><div class="tl-note">全室エアコン完備。</div></div></div>
+        <div class="tl-item"><div class="tl-time">16:30</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">夕方の集落散歩（であい橋・田んぼの畦道）<span class="pill pill-sight">観光</span></div><div class="tl-note">日帰り客が帰ったあとが、いちばんいい時間。</div></div></div>
+        <div class="tl-item"><div class="tl-time">18:00</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">囲炉裏端で飛騨牛ディナー → 夜は満天の星<span class="pill pill-food">食事</span></div><div class="tl-note">夜の散歩はスマホライトで足元を確保。</div></div></div>
       </div>
       <div class="stay"><span class="moon"></span>泊：合掌造り民宿 幸ヱ門<small>白川村荻町456・05769-6-1446</small></div>
     </div>
 
     <!-- DAY 3 -->
     <div class="panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3">
-      <div class="panel-head"><span class="b-day">DAY 3</span><h3>高山さんぽ、そして帰路へ</h3></div>
+      <div class="panel-head"><h3>高山さんぽ、そして帰路へ</h3></div>
       <div class="panel-map"><svg viewBox="0 0 760 280" role="img" aria-label="DAY3のルートマップ" style="width:100%;height:auto;display:block;">
         <rect x="0" y="0" width="760" height="280" rx="14" fill="#FBF0E3"/>
         <path d="M0,40 Q180,10 400,30 Q590,45 760,19 L760,0 L0,0 Z" fill="#D6E8ED"/>
@@ -311,10 +314,10 @@
         <text x="591" y="264" font-size="11" font-weight="600" fill="#A08876">DAY3・新幹線で帰路</text>
       </svg></div>
       <div class="timeline">
-        <div class="tl-item"><div class="tl-time">朝</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">民宿 幸ヱ門で朝ごはん</div><div class="tl-note">囲炉裏端の朝食。食後はチェックアウトしてバス停へ。</div></div></div>
+        <div class="tl-item"><div class="tl-time">朝</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">民宿 幸ヱ門で朝ごはん<span class="pill pill-food">食事</span></div><div class="tl-note">囲炉裏端の朝食。食後はチェックアウトしてバス停へ。</div></div></div>
         <div class="tl-item"><div class="tl-time">9:35</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">高速バスで高山へ（10:25着）<span class="pill pill-todo">要予約</span></div><div class="tl-note">約50分・2,800円。この時間帯を逃すと次のバスがないので注意。</div></div></div>
-        <div class="tl-item"><div class="tl-time">午前</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">宮川朝市 → さんまち（古い町並）散策</div><div class="tl-note">食べ歩きはここで。飛騨牛にぎり・みたらしだんご。</div></div></div>
-        <div class="tl-item"><div class="tl-time">昼</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">飛騨牛ランチ → 高山陣屋（屋内）</div></div></div>
+        <div class="tl-item"><div class="tl-time">午前</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">宮川朝市 → さんまち（古い町並）散策<span class="pill pill-sight">観光</span><span class="pill pill-food">食事</span></div><div class="tl-note">食べ歩きはここで。飛騨牛にぎり・みたらしだんご。</div></div></div>
+        <div class="tl-item"><div class="tl-time">昼</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">飛騨牛ランチ → 高山陣屋（屋内）<span class="pill pill-food">食事</span><span class="pill pill-sight">観光</span></div></div></div>
         <div class="tl-item"><div class="tl-time">午後</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">特急ひだで名古屋へ（約2時間半）<span class="pill pill-todo">指定席とる</span></div><div class="tl-note">車窓の飛騨川がきれいな区間。進行方向右側がおすすめ。</div></div></div>
         <div class="tl-item"><div class="tl-time">夕方</div><div class="tl-line"></div><div class="tl-body"><div class="tl-title">名古屋から新幹線で帰路へ。おつかれさま！</div></div></div>
       </div>
